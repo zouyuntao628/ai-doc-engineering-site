@@ -746,6 +746,111 @@ for (const paper of papers) {
   Object.assign(paper, enhancements[paper.file]);
 }
 
+const referenceSets = {
+  "five-asset-model.html": [
+    "Fan, A.; Gokkaya, B.; Harman, M.; et al. (2023). Large Language Models for Software Engineering: Survey and Open Problems. ICSE-FoSE 2023. DOI: 10.1109/ICSE-FOSE59343.2023.00008.",
+    "Hou, X.; Zhao, Y.; Liu, Y.; et al. (2024). Large Language Models for Software Engineering: A Systematic Literature Review. ACM Transactions on Software Engineering and Methodology. DOI: 10.1145/3695988.",
+    "Wang, J.; Huang, Y.; Chen, C.; Liu, Z.; Wang, S.; Wang, Q. (2024). Software Testing with Large Language Models: Survey, Landscape, and Vision. IEEE Transactions on Software Engineering. DOI: 10.1109/TSE.2024.3368208.",
+    "Ozkaya, I. (2023). Application of Large Language Models to Software Engineering Tasks: Opportunities, Risks, and Implications. IEEE Software.",
+    "Wang, J.; et al. (2025). A Survey on Large Language Models for Software Engineering. Science China Information Sciences. DOI: 10.1007/s11432-025-4670-0."
+  ],
+  "paradigm-shift.html": [
+    "Fan, A.; Gokkaya, B.; Harman, M.; et al. (2023). Large Language Models for Software Engineering: Survey and Open Problems. ICSE-FoSE 2023. DOI: 10.1109/ICSE-FOSE59343.2023.00008.",
+    "Hou, X.; Zhao, Y.; Liu, Y.; et al. (2024). Large Language Models for Software Engineering: A Systematic Literature Review. ACM Transactions on Software Engineering and Methodology. DOI: 10.1145/3695988.",
+    "Ozkaya, I. (2023). Application of Large Language Models to Software Engineering Tasks: Opportunities, Risks, and Implications. IEEE Software.",
+    "Liu, Y.; et al. (2024). Engineering Foundation Models. arXiv:2407.08176.",
+    "Zhang, Z.; et al. (2025). A Survey on Large Language Models for Code Generation. ACM Computing Surveys. DOI: 10.1145/3747588."
+  ],
+  "classification-framework.html": [
+    "Fan, A.; Gokkaya, B.; Harman, M.; et al. (2023). Large Language Models for Software Engineering: Survey and Open Problems. ICSE-FoSE 2023. DOI: 10.1109/ICSE-FOSE59343.2023.00008.",
+    "Hou, X.; Zhao, Y.; Liu, Y.; et al. (2024). Large Language Models for Software Engineering: A Systematic Literature Review. ACM Transactions on Software Engineering and Methodology. DOI: 10.1145/3695988.",
+    "Wang, J.; et al. (2025). A Survey on Large Language Models for Software Engineering. Science China Information Sciences. DOI: 10.1007/s11432-025-4670-0.",
+    "Habiba, U.; Anwar, S.; Shafiq, M. O.; et al. (2024). How Mature is Requirements Engineering for AI-based Systems? A Systematic Mapping Study. Requirements Engineering. DOI: 10.1007/s00766-024-00432-3.",
+    "Wang, J.; Huang, Y.; Chen, C.; Liu, Z.; Wang, S.; Wang, Q. (2024). Software Testing with Large Language Models: Survey, Landscape, and Vision. IEEE Transactions on Software Engineering. DOI: 10.1109/TSE.2024.3368208."
+  ],
+  "documentation-control-plane.html": [
+    "Liu, Y.; et al. (2024). Engineering Foundation Models. arXiv:2407.08176.",
+    "Yao, S.; Zhao, J.; Yu, D.; et al. (2023). ReAct: Synergizing Reasoning and Acting in Language Models. ICLR 2023.",
+    "Schick, T.; Dwivedi-Yu, J.; Dessì, R.; et al. (2023). Toolformer: Language Models Can Teach Themselves to Use Tools. NeurIPS 2023.",
+    "Shinn, N.; Cassano, F.; Gopinath, A.; Narasimhan, K.; Yao, S. (2023). Reflexion: Language Agents with Verbal Reinforcement Learning. NeurIPS 2023.",
+    "Yang, J.; Jimenez, C. E.; Wettig, A.; et al. (2024). SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering. NeurIPS 2024."
+  ],
+  "vibe-coding-cognition.html": [
+    "Fan, A.; Gokkaya, B.; Harman, M.; et al. (2023). Large Language Models for Software Engineering: Survey and Open Problems. ICSE-FoSE 2023. DOI: 10.1109/ICSE-FOSE59343.2023.00008.",
+    "Hou, X.; Zhao, Y.; Liu, Y.; et al. (2024). Large Language Models for Software Engineering: A Systematic Literature Review. ACM Transactions on Software Engineering and Methodology. DOI: 10.1145/3695988.",
+    "Qian, C.; Cong, X.; Yang, C.; et al. (2023). Communicative Agents for Software Development. arXiv:2307.07924.",
+    "Hong, S.; Zheng, X.; Chen, J.; et al. (2024). MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework. ICLR 2024.",
+    "Jimenez, C. E.; Yang, J.; Wettig, A.; et al. (2024). SWE-bench: Can Language Models Resolve Real-World GitHub Issues? ICLR 2024."
+  ],
+  "contract-microservices.html": [
+    "Fan, A.; Gokkaya, B.; Harman, M.; et al. (2023). Large Language Models for Software Engineering: Survey and Open Problems. ICSE-FoSE 2023. DOI: 10.1109/ICSE-FOSE59343.2023.00008.",
+    "Hou, X.; Zhao, Y.; Liu, Y.; et al. (2024). Large Language Models for Software Engineering: A Systematic Literature Review. ACM Transactions on Software Engineering and Methodology. DOI: 10.1145/3695988.",
+    "Wang, J.; Huang, Y.; Chen, C.; Liu, Z.; Wang, S.; Wang, Q. (2024). Software Testing with Large Language Models: Survey, Landscape, and Vision. IEEE Transactions on Software Engineering. DOI: 10.1109/TSE.2024.3368208.",
+    "Habiba, U.; Anwar, S.; Shafiq, M. O.; et al. (2024). How Mature is Requirements Engineering for AI-based Systems? A Systematic Mapping Study. Requirements Engineering. DOI: 10.1007/s00766-024-00432-3.",
+    "Zhang, Z.; et al. (2025). A Survey on Large Language Models for Code Generation. ACM Computing Surveys. DOI: 10.1145/3747588."
+  ],
+  "openapi-consistency.html": [
+    "Patil, S. G.; Zhang, T.; Wang, X.; Gonzalez, J. E. (2024). Gorilla: Large Language Model Connected with Massive APIs. NeurIPS 2024.",
+    "Schick, T.; Dwivedi-Yu, J.; Dessì, R.; et al. (2023). Toolformer: Language Models Can Teach Themselves to Use Tools. NeurIPS 2023.",
+    "Wang, J.; Huang, Y.; Chen, C.; Liu, Z.; Wang, S.; Wang, Q. (2024). Software Testing with Large Language Models: Survey, Landscape, and Vision. IEEE Transactions on Software Engineering. DOI: 10.1109/TSE.2024.3368208.",
+    "Fan, A.; Gokkaya, B.; Harman, M.; et al. (2023). Large Language Models for Software Engineering: Survey and Open Problems. ICSE-FoSE 2023. DOI: 10.1109/ICSE-FOSE59343.2023.00008.",
+    "Liu, Y.; et al. (2024). Engineering Foundation Models. arXiv:2407.08176."
+  ],
+  "ddd-documentation.html": [
+    "Habiba, U.; Anwar, S.; Shafiq, M. O.; et al. (2024). How Mature is Requirements Engineering for AI-based Systems? A Systematic Mapping Study. Requirements Engineering. DOI: 10.1007/s00766-024-00432-3.",
+    "Fan, A.; Gokkaya, B.; Harman, M.; et al. (2023). Large Language Models for Software Engineering: Survey and Open Problems. ICSE-FoSE 2023. DOI: 10.1109/ICSE-FOSE59343.2023.00008.",
+    "Hou, X.; Zhao, Y.; Liu, Y.; et al. (2024). Large Language Models for Software Engineering: A Systematic Literature Review. ACM Transactions on Software Engineering and Methodology. DOI: 10.1145/3695988.",
+    "Wang, J.; et al. (2025). A Survey on Large Language Models for Software Engineering. Science China Information Sciences. DOI: 10.1007/s11432-025-4670-0.",
+    "Zhang, Z.; et al. (2025). A Survey on Large Language Models for Code Generation. ACM Computing Surveys. DOI: 10.1145/3747588."
+  ],
+  "product-line-variation.html": [
+    "Liu, Y.; et al. (2024). Engineering Foundation Models. arXiv:2407.08176.",
+    "Habiba, U.; Anwar, S.; Shafiq, M. O.; et al. (2024). How Mature is Requirements Engineering for AI-based Systems? A Systematic Mapping Study. Requirements Engineering. DOI: 10.1007/s00766-024-00432-3.",
+    "Fan, A.; Gokkaya, B.; Harman, M.; et al. (2023). Large Language Models for Software Engineering: Survey and Open Problems. ICSE-FoSE 2023. DOI: 10.1109/ICSE-FOSE59343.2023.00008.",
+    "Hou, X.; Zhao, Y.; Liu, Y.; et al. (2024). Large Language Models for Software Engineering: A Systematic Literature Review. ACM Transactions on Software Engineering and Methodology. DOI: 10.1145/3695988.",
+    "Wang, J.; Huang, Y.; Chen, C.; Liu, Z.; Wang, S.; Wang, Q. (2024). Software Testing with Large Language Models: Survey, Landscape, and Vision. IEEE Transactions on Software Engineering. DOI: 10.1109/TSE.2024.3368208."
+  ],
+  "agent-machine-interface.html": [
+    "Yao, S.; Zhao, J.; Yu, D.; et al. (2023). ReAct: Synergizing Reasoning and Acting in Language Models. ICLR 2023.",
+    "Schick, T.; Dwivedi-Yu, J.; Dessì, R.; et al. (2023). Toolformer: Language Models Can Teach Themselves to Use Tools. NeurIPS 2023.",
+    "Shinn, N.; Cassano, F.; Gopinath, A.; Narasimhan, K.; Yao, S. (2023). Reflexion: Language Agents with Verbal Reinforcement Learning. NeurIPS 2023.",
+    "Patil, S. G.; Zhang, T.; Wang, X.; Gonzalez, J. E. (2024). Gorilla: Large Language Model Connected with Massive APIs. NeurIPS 2024.",
+    "Yang, J.; Jimenez, C. E.; Wettig, A.; et al. (2024). SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering. NeurIPS 2024."
+  ],
+  "tool-schema-quality.html": [
+    "Patil, S. G.; Zhang, T.; Wang, X.; Gonzalez, J. E. (2024). Gorilla: Large Language Model Connected with Massive APIs. NeurIPS 2024.",
+    "Schick, T.; Dwivedi-Yu, J.; Dessì, R.; et al. (2023). Toolformer: Language Models Can Teach Themselves to Use Tools. NeurIPS 2023.",
+    "Yao, S.; Zhao, J.; Yu, D.; et al. (2023). ReAct: Synergizing Reasoning and Acting in Language Models. ICLR 2023.",
+    "Shinn, N.; Cassano, F.; Gopinath, A.; Narasimhan, K.; Yao, S. (2023). Reflexion: Language Agents with Verbal Reinforcement Learning. NeurIPS 2023.",
+    "Qin, Y.; Liang, S.; Ye, Y.; et al. (2024). ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs. ICLR 2024."
+  ],
+  "document-quality-metrics.html": [
+    "Wang, J.; Huang, Y.; Chen, C.; Liu, Z.; Wang, S.; Wang, Q. (2024). Software Testing with Large Language Models: Survey, Landscape, and Vision. IEEE Transactions on Software Engineering. DOI: 10.1109/TSE.2024.3368208.",
+    "Habiba, U.; Anwar, S.; Shafiq, M. O.; et al. (2024). How Mature is Requirements Engineering for AI-based Systems? A Systematic Mapping Study. Requirements Engineering. DOI: 10.1007/s00766-024-00432-3.",
+    "Hou, X.; Zhao, Y.; Liu, Y.; et al. (2024). Large Language Models for Software Engineering: A Systematic Literature Review. ACM Transactions on Software Engineering and Methodology. DOI: 10.1145/3695988.",
+    "Fan, A.; Gokkaya, B.; Harman, M.; et al. (2023). Large Language Models for Software Engineering: Survey and Open Problems. ICSE-FoSE 2023. DOI: 10.1109/ICSE-FOSE59343.2023.00008.",
+    "Wang, J.; et al. (2025). A Survey on Large Language Models for Software Engineering. Science China Information Sciences. DOI: 10.1007/s11432-025-4670-0."
+  ],
+  "document-version-management.html": [
+    "Fan, A.; Gokkaya, B.; Harman, M.; et al. (2023). Large Language Models for Software Engineering: Survey and Open Problems. ICSE-FoSE 2023. DOI: 10.1109/ICSE-FOSE59343.2023.00008.",
+    "Hou, X.; Zhao, Y.; Liu, Y.; et al. (2024). Large Language Models for Software Engineering: A Systematic Literature Review. ACM Transactions on Software Engineering and Methodology. DOI: 10.1145/3695988.",
+    "Liu, Y.; et al. (2024). Engineering Foundation Models. arXiv:2407.08176.",
+    "Ozkaya, I. (2023). Application of Large Language Models to Software Engineering Tasks: Opportunities, Risks, and Implications. IEEE Software.",
+    "Yang, J.; Jimenez, C. E.; Wettig, A.; et al. (2024). SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering. NeurIPS 2024."
+  ],
+  "repository-organization.html": [
+    "Fan, A.; Gokkaya, B.; Harman, M.; et al. (2023). Large Language Models for Software Engineering: Survey and Open Problems. ICSE-FoSE 2023. DOI: 10.1109/ICSE-FOSE59343.2023.00008.",
+    "Hou, X.; Zhao, Y.; Liu, Y.; et al. (2024). Large Language Models for Software Engineering: A Systematic Literature Review. ACM Transactions on Software Engineering and Methodology. DOI: 10.1145/3695988.",
+    "Jimenez, C. E.; Yang, J.; Wettig, A.; et al. (2024). SWE-bench: Can Language Models Resolve Real-World GitHub Issues? ICLR 2024.",
+    "Yang, J.; Jimenez, C. E.; Wettig, A.; et al. (2024). SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering. NeurIPS 2024.",
+    "Zhang, Z.; et al. (2025). A Survey on Large Language Models for Code Generation. ACM Computing Surveys. DOI: 10.1145/3747588."
+  ]
+};
+
+for (const paper of papers) {
+  paper.references = referenceSets[paper.file] || paper.references;
+}
+
 function esc(text) {
   return String(text)
     .replace(/&/g, "&amp;")
@@ -768,7 +873,7 @@ function renderPaper(paper) {
     ["figures", "图表建议"],
     ["evaluation", "评价设计"],
     ["limitations", "局限展望"],
-    ["references", "参考文献方向"]
+    ["references", "近三年参考"]
   ];
   const bodySections = paper.sections.map(([title, paragraphs], index) => `
         <article class="paper-section" id="${index === 0 ? "intro" : `section-${index}`}">
@@ -835,8 +940,8 @@ function renderPaper(paper) {
           <ul>${paper.limitations.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>
         </article>
         <article class="paper-section" id="references">
-          <h2>参考文献方向</h2>
-          <p>以下为写成正式投稿论文时建议补充和核验的文献方向：</p>
+          <h2>近三年重点参考文献</h2>
+          <p>以下文献优先选择 2023-2026 年的高影响期刊、顶级会议、系统综述或在 AI 软件工程方向高关注的代表性论文。正式投稿前建议进一步按目标期刊格式核验作者全名、卷期页码和引用次数。</p>
           <ul>${paper.references.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>
           <div class="actions">
             ${paper.next ? `<a class="button primary" href="${paper.next}">${paper.next === "five-asset-model.html" ? "回到第一篇" : "阅读下一篇"}</a>` : ""}
