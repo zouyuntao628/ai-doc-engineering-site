@@ -1,5 +1,12 @@
 const papers = [
   {
+    href: "papers/five-asset-model.html",
+    tag: "主论文",
+    title: "AI时代的5类资产模型：源码与文档统一管理指南",
+    desc: "提出意图、实现、验证、过程、运行时认知5类资产模型，将源码与文档纳入同仓、同分支、同PR、同版本的统一管理体系。",
+    keys: ["5类资产", "统一管理", "源码文档协同"]
+  },
+  {
     href: "papers/paradigm-shift.html",
     tag: "总论",
     title: "AI 编程时代的软件文档范式转移：从代码附属物到协同界面",
