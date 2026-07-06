@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文档即控制面</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="../index.html"><span class="brand-mark">文</span><span>AI 文档工程</span></a>
+      <div class="nav-links"><a href="../index.html">首页</a><a href="classification-framework.html">上一篇</a><a href="vibe-coding-cognition.html">下一篇</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="paper-hero">
+      <p class="eyebrow">理论提升论文</p>
+      <h1>AI 原生软件工程中的文档即控制面：概念、架构与实践框架</h1>
+      <p class="lead">把文档视为控制 AI 生成目标、工具权限、架构边界、异常升级和质量验证的工程控制面。</p>
+      <div class="paper-meta"><span class="tag">控制面</span><span class="tag">生成约束</span><span class="tag">AI 原生</span></div>
+    </section>
+    <section class="paper-layout">
+      <aside class="toc">
+        <a href="#question">研究问题</a><a href="#abstract">摘要</a><a href="#contributions">核心贡献</a><a href="#intro">正文</a><a href="#research-design">研究设计</a><a href="#figures">图表建议</a><a href="#evaluation">评价设计</a><a href="#limitations">局限展望</a><a href="#references">参考文献方向</a>
+      </aside>
+      <div class="paper-content">
+        <article class="paper-section" id="question">
+          <h2>研究问题</h2>
+          <p class="quote">在 AI 原生开发中，文档如何从说明材料升级为控制 AI 行为和工程演进的控制面？</p>
+        </article>
+        <article class="paper-section" id="abstract">
+          <h2>摘要</h2>
+          <p>AI 原生软件系统的执行行为不再完全由静态代码决定，还受到提示词、工具定义、记忆策略、路由规则和人类升级协议影响。传统文档如果只承担说明职责，无法控制 AI 生成过程中的目标漂移、工具误用、上下文断裂和异常处理失败。本文提出 Documentation as Control Plane 的概念，将文档纳入系统控制结构，说明文档如何管理生成边界、接口契约、安全约束、工具调用和异常升级。本文进一步提出由目标控制、结构控制、接口控制、行为控制和质量控制组成的文档控制面架构。</p>
+          <h3>关键词</h3>
+          <div class="tag-row"><span class="tag">AI 原生软件工程</span><span class="tag">文档控制面</span><span class="tag">Agent 编排</span><span class="tag">生成约束</span><span class="tag">工程治理</span></div>
+        </article>
+        <article class="paper-section" id="contributions">
+          <h2>核心贡献</h2>
+          <ul><li>提出 Documentation as Control Plane 概念，将文档纳入 AI 原生系统的控制结构。</li><li>定义目标控制、结构控制、接口控制、行为控制和质量控制五个控制层次。</li><li>说明文档如何与 CI、契约测试、Agent Runtime 和人类升级流程结合。</li></ul>
+        </article>
+        <article class="paper-section" id="intro">
+          <h2>引言</h2>
+          <p>AI 原生系统区别于传统系统的关键在于：系统行为部分来自模型推理，而模型推理需要上下文、工具、规则和外部反馈共同约束。对于这类系统，仅有代码级控制是不够的。代码可以限制函数行为，却不能完整规定 Agent 如何分解任务、何时调用工具、何时写入记忆、何时向人求助。</p><p>因此，AI 原生软件工程需要一个位于代码之上的控制面。这个控制面不直接执行所有业务逻辑，但定义目标、边界、权限和验证规则。本文认为，文档正是这一控制面的主要载体。</p>
+        </article>
+        <article class="paper-section" id="section-1">
+          <h2>控制问题</h2>
+          <p>AI 生成带来的首要问题是目标漂移。用户意图、产品需求和代码实现之间可能经过多轮对话和多次生成，缺乏稳定文档时，模型容易根据局部上下文做出错误假设。第二个问题是工具误用。Agent 可以调用数据库、搜索、文件系统或业务 API，但如果工具定义缺少参数约束和副作用说明，就会产生错误调用甚至安全风险。</p><p>第三个问题是异常处理不足。传统软件异常可以通过代码捕获，而 Agent 异常往往表现为无法判断、上下文不足、目标冲突或权限不明。这些异常需要通过文档化规则定义升级路径。</p>
+        </article>
+        <article class="paper-section" id="section-2">
+          <h2>文档控制面架构</h2>
+          <p>目标控制层定义系统应该完成什么，包括产品愿景、任务边界、用户故事和验收标准。结构控制层定义系统应该如何组织，包括架构约束、模块边界、服务蓝图和数据流。接口控制层定义系统之间和 Agent 与工具之间如何交互，包括 API 契约、事件 Schema、函数参数 Schema 和错误码。</p><p>行为控制层定义 Agent 在执行任务时如何规划、路由、记忆、停止和求助。质量控制层定义如何验证结果，包括测试策略、兼容性规则、安全约束和合规要求。这五层共同构成文档控制面。</p>
+        </article>
+        <article class="paper-section" id="section-3">
+          <h2>实践框架</h2>
+          <p>实施文档控制面应遵循三个步骤。第一步是识别需要被文档控制的高风险边界，包括跨团队接口、核心领域概念、外部工具调用、权限操作和人机交互节点。第二步是将这些边界转化为结构化或半结构化文档，例如 YAML Schema、OpenAPI、决策表、规则清单和验收标准。第三步是把文档接入工程流程，使文档变更触发代码生成、测试更新、兼容性检查或 Agent 回归评估。</p><p>控制面不意味着所有内容都必须机器可读。对于战略目标和复杂业务解释，自然语言仍然有效。但关键约束、参数、边界和验证条件应尽量显式化和结构化。</p>
+        </article>
+        <article class="paper-section" id="section-4">
+          <h2>讨论</h2>
+          <p>文档即控制面与传统文档治理的区别在于，它强调文档参与系统运行和工程流程，而不是停留在知识保存层面。当 API 契约驱动测试，当工具 Schema 约束 Agent 调用，当记忆策略决定上下文读写，当验收标准驱动生成评估时，文档已经成为系统行为的一部分。</p><p>这一框架也要求团队重新定义文档责任。产品、架构、后端、数据、安全和 AI 工程角色都应维护各自控制面文档，而不是把文档作为开发结束后的整理工作。</p>
+        </article>
+        <article class="paper-section" id="section-5">
+          <h2>结论</h2>
+          <p>AI 原生软件工程需要将文档提升为控制面。文档控制面通过目标、结构、接口、行为和质量五层控制 AI 生成和系统演进。该概念为 Agent 应用治理、AI 辅助开发流程和文档工具链设计提供了新的理论基础。</p>
+        </article>
+        <article class="paper-section" id="research-design">
+          <h2>研究设计</h2>
+          <p>研究可采用架构建模方法，先定义 AI 原生系统中的控制对象，再分析每类控制对象所需文档。之后通过 Agent 应用或 AI 辅助微服务项目验证控制面文档是否降低生成漂移和工具误用。</p><p>实验组可以引入控制面文档，对照组只提供普通需求描述，比较两组在复杂任务中的约束遵循率和异常恢复能力。</p>
+        </article>
+        <article class="paper-section" id="figures">
+          <h2>建议图表</h2>
+          <ul><li>图 1：AI 原生软件系统中的文档控制面架构。</li><li>图 2：文档变更触发代码生成、测试和 Agent 回归的流程。</li><li>表 1：五类控制层与对应文档、风险和验证方式。</li></ul>
+        </article>
+        <article class="paper-section" id="evaluation">
+          <h2>评价设计</h2>
+          <p>本文可采用案例研究、对比实验、专家评审或企业项目复盘进行验证。核心评价指标包括：</p>
+          <ul><li>生成漂移率</li><li>工具调用正确率</li><li>异常升级准确率</li><li>架构违规检出率</li><li>文档变更影响可追踪率</li></ul>
+        </article>
+        <article class="paper-section" id="limitations">
+          <h2>局限与未来工作</h2>
+          <ul><li>控制面概念需要避免过度泛化，后续应明确哪些文档真正参与控制，哪些只是背景说明。</li><li>不同模型和 Agent 框架对文档结构的敏感性不同，后续需要跨模型评估。</li></ul>
+        </article>
+        <article class="paper-section" id="references">
+          <h2>参考文献方向</h2>
+          <p>以下为写成正式投稿论文时建议补充和核验的文献方向：</p>
+          <ul><li>控制面与数据面架构思想</li><li>软件架构决策记录研究</li><li>Agent 工具调用和编排研究</li><li>AI 安全与人机协同治理研究</li></ul>
+          <div class="actions">
+            <a class="button primary" href="vibe-coding-cognition.html">阅读下一篇</a>
+            <a class="button" href="../index.html#papers">返回选题库</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

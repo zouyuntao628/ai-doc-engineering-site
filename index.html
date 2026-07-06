@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 编程时代的软件文档工程研究</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">文</span>
+        <span>AI 文档工程</span>
+      </a>
+      <div class="nav-links">
+        <a class="active" href="index.html">首页</a>
+        <a href="#framework">分析框架</a>
+        <a href="#papers">论文选题</a>
+        <a href="#roadmap">研究路线</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">AI Programming Documentation Engineering</p>
+        <h1>AI 编程时代的软件文档工程研究</h1>
+        <p class="lead">当代码可以被 AI 快速生成，真正需要长期管理的对象变成了需求认知、领域语义、接口契约、架构约束和智能体行为规则。这个网站把“文档成为核心资产”的判断整理成一组可展开的论文选题。</p>
+        <div class="actions">
+          <a class="button primary" href="#papers">浏览论文选题</a>
+          <a class="button" href="papers/classification-framework.html">查看主框架论文</a>
+        </div>
+      </div>
+      <div class="visual" aria-label="四维项目坐标中的典型场景">
+        <div class="axis">
+          <span class="y">业务成熟度 / 协作复杂度</span>
+          <span class="x">系统复杂度 / 质量诉求</span>
+        </div>
+        <a class="node a" href="papers/vibe-coding-cognition.html">
+          <strong>场景 A</strong>
+          <small>AI 辅助原型探索</small>
+        </a>
+        <a class="node b" href="papers/contract-microservices.html">
+          <strong>场景 B</strong>
+          <small>契约驱动微服务</small>
+        </a>
+        <a class="node c" href="papers/ddd-documentation.html">
+          <strong>场景 C</strong>
+          <small>领域驱动平台</small>
+        </a>
+        <a class="node d" href="papers/agent-machine-interface.html">
+          <strong>场景 D</strong>
+          <small>AI Agent 构建</small>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="framework">
+      <div class="section-head">
+        <div>
+          <h2>四维分析坐标系</h2>
+          <p>项目的文档模型不应该套用同一模板，而应由项目特征决定。这里用四个维度交叉定位项目类型。</p>
+        </div>
+      </div>
+      <div class="grid cols-2">
+        <article class="card">
+          <h3>业务维度</h3>
+          <p>判断产品成熟度和变异度：探索型、成长型、平台型，以及不同客户、行业或市场版本带来的变异点。</p>
+        </article>
+        <article class="card">
+          <h3>系统维度</h3>
+          <p>判断架构风格：单体式、分布式、数据密集型、AI 原生。系统形态决定文档需要约束代码、数据、接口还是智能体行为。</p>
+        </article>
+        <article class="card">
+          <h3>协作维度</h3>
+          <p>判断团队与 AI 的分工：人机对话型、人机协作型、AI 编排型、生成增强型。协作模式决定文档是给人读、给 AI 读，还是给双方共同执行。</p>
+        </article>
+        <article class="card">
+          <h3>工程维度</h3>
+          <p>判断迭代与质量诉求：速度优先、质量优先、长期演进。工程诉求决定文档是轻量沉淀、严格契约，还是架构治理资产。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>文档模型匹配矩阵</h2>
+          <p>四个典型场景对应四种文档模型，分别解决认知、契约、领域和智能体行为问题。</p>
+        </div>
+      </div>
+      <div class="matrix">
+        <table>
+          <thead>
+            <tr>
+              <th>典型场景</th>
+              <th>核心矛盾</th>
+              <th>文档模型</th>
+              <th>关键文档</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AI 辅助的原型探索</td>
+              <td>如何从快速生成、经常抛弃的代码中沉淀有效认知。</td>
+              <td>认知沉淀模型</td>
+              <td>实验日志、结构化提取卡、用户故事、验收标准、架构约束片段。</td>
+            </tr>
+            <tr>
+              <td>契约驱动的微服务产品开发</td>
+              <td>如何确保多个团队和 AI 在大量服务间严格遵循 API 契约。</td>
+              <td>契约中心模型</td>
+              <td>OpenAPI、AsyncAPI、事件 Schema、服务蓝图、兼容性策略。</td>
+            </tr>
+            <tr>
+              <td>领域驱动的平台建设</td>
+              <td>如何让业务通用语言驱动 AI 生成，并管理不同产品线差异。</td>
+              <td>领域模型中心模型</td>
+              <td>统一语言词汇表、领域模型图、特性配置、变异点说明。</td>
+            </tr>
+            <tr>
+              <td>AI 原生应用的 Agent 构建</td>
+              <td>如何为 AI 编写有效的机器界面文档，并编排复杂行为。</td>
+              <td>智能体编排模型</td>
+              <td>工具定义、参数 Schema、编排规则、记忆策略、人机协同协议。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="papers">
+      <div class="section-head">
+        <div>
+          <h2>论文选题库</h2>
+          <p>每个卡片都可以点击进入独立论文页。页面中包含摘要、研究问题、核心贡献、论文大纲和评价指标。</p>
+        </div>
+      </div>
+      <div class="grid cols-3" data-paper-grid></div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="section-head">
+        <div>
+          <h2>研究路线</h2>
+          <p>推荐先写总框架，再展开四个场景模型，最后补足度量、治理与工具链。</p>
+        </div>
+      </div>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>第一阶段：理论框架</h3>
+          <p>完成文档范式转移和多维项目分类两篇论文，定义研究对象、核心概念和模型匹配方法。</p>
+        </article>
+        <article class="card">
+          <h3>第二阶段：场景模型</h3>
+          <p>围绕原型探索、微服务契约、领域平台和 Agent 编排分别建立专属文档模型。</p>
+        </article>
+        <article class="card">
+          <h3>第三阶段：治理工具</h3>
+          <p>建立文档质量度量、文档版本管理和文档仓库组织方法，把论文体系落到工程实践。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>AI 编程时代的软件文档工程研究 · 静态论文选题网站</p>
+  </footer>
+  <script src="site.js"></script>
+</body>
+</html>

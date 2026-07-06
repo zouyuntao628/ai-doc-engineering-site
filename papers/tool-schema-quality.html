@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>函数 Schema 文档质量</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="../index.html"><span class="brand-mark">文</span><span>AI 文档工程</span></a>
+      <div class="nav-links"><a href="../index.html">首页</a><a href="agent-machine-interface.html">上一篇</a><a href="document-quality-metrics.html">下一篇</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="paper-hero">
+      <p class="eyebrow">技术实证论文</p>
+      <h1>面向大模型工具调用的函数 Schema 文档质量评价研究</h1>
+      <p class="lead">研究工具描述质量、参数 Schema、示例、反例和错误处理说明对 LLM 工具调用成功率的影响。</p>
+      <div class="paper-meta"><span class="tag">Function Calling</span><span class="tag">Schema</span><span class="tag">评价指标</span></div>
+    </section>
+    <section class="paper-layout">
+      <aside class="toc">
+        <a href="#question">研究问题</a><a href="#abstract">摘要</a><a href="#contributions">核心贡献</a><a href="#intro">正文</a><a href="#research-design">研究设计</a><a href="#figures">图表建议</a><a href="#evaluation">评价设计</a><a href="#limitations">局限展望</a><a href="#references">参考文献方向</a>
+      </aside>
+      <div class="paper-content">
+        <article class="paper-section" id="question">
+          <h2>研究问题</h2>
+          <p class="quote">函数/工具文档质量如何影响大模型工具选择、参数生成和错误恢复？</p>
+        </article>
+        <article class="paper-section" id="abstract">
+          <h2>摘要</h2>
+          <p>工具调用是 Agent 能力落地的关键，但工具名、描述、参数 Schema 和示例质量直接影响调用结果。本文构建函数 Schema 文档质量分级模型，比较仅函数名、函数名加描述、完整 Schema、Schema 加示例、Schema 加反例与错误说明等条件下的大模型工具调用表现。研究重点包括工具选择准确率、参数生成正确率、一次调用成功率、无效调用率、多轮修正次数和错误恢复成功率。</p>
+          <h3>关键词</h3>
+          <div class="tag-row"><span class="tag">函数调用</span><span class="tag">工具 Schema</span><span class="tag">LLM</span><span class="tag">Agent 评估</span><span class="tag">文档质量</span></div>
+        </article>
+        <article class="paper-section" id="contributions">
+          <h2>核心贡献</h2>
+          <ul><li>提出函数 Schema 文档质量分级模型。</li><li>设计工具调用质量评价实验，分析描述、参数 Schema、示例、反例和错误说明的边际贡献。</li><li>建立面向 Agent 工具层的文档质量指标。</li></ul>
+        </article>
+        <article class="paper-section" id="intro">
+          <h2>引言</h2>
+          <p>Agent 的能力很大程度上取决于工具调用。即使底层工具实现正确，如果工具文档模糊，模型也可能选择错误工具、填写错误参数或忽视副作用。因此，函数 Schema 文档质量应被视为 Agent 工程质量的一部分。</p>
+        </article>
+        <article class="paper-section" id="section-1">
+          <h2>质量分级</h2>
+          <p>本文将工具文档分为五个等级。Level 1 只有函数名。Level 2 有函数名和简短描述。Level 3 有完整参数 Schema。Level 4 在 Schema 基础上加入使用示例。Level 5 进一步加入反例、约束条件、错误处理和副作用说明。该分级用于测试不同信息量对工具调用表现的影响。</p>
+        </article>
+        <article class="paper-section" id="section-2">
+          <h2>实验设计</h2>
+          <p>实验应构造一组工具和任务，包括查询、写入、搜索、计算、文件操作和外部 API 调用。每个任务在不同文档等级下执行多次，并记录模型选择的工具、参数、调用结果和修正过程。为避免工具实现差异干扰，应保持工具功能不变，只改变文档质量。</p>
+        </article>
+        <article class="paper-section" id="section-3">
+          <h2>评价方法</h2>
+          <p>工具选择准确率衡量模型是否选择了正确函数。参数生成正确率衡量类型、必填项、枚举值和业务约束是否正确。一次调用成功率衡量无需修正即可完成任务的比例。错误恢复成功率衡量工具返回错误后模型能否根据文档修正参数或切换策略。</p>
+        </article>
+        <article class="paper-section" id="section-4">
+          <h2>预期发现</h2>
+          <p>预期 Level 3 相比 Level 1 和 Level 2 能显著降低参数错误，Level 4 能减少语义误解，Level 5 能提升异常恢复能力。对于高风险工具，反例和副作用说明可能比普通示例更重要。</p>
+        </article>
+        <article class="paper-section" id="section-5">
+          <h2>结论</h2>
+          <p>函数 Schema 文档质量直接影响 Agent 工具调用可靠性。企业在构建工具层时，应将工具文档纳入质量评审，并通过任务集持续评估文档对调用成功率的影响。</p>
+        </article>
+        <article class="paper-section" id="research-design">
+          <h2>研究设计</h2>
+          <p>构造工具集和任务集，保持工具实现不变，仅改变工具文档质量等级。对每个等级重复运行多轮，统计工具选择和参数生成表现。</p><p>可进一步按工具风险等级分组，观察高副作用工具是否更依赖反例、权限说明和错误处理文档。</p>
+        </article>
+        <article class="paper-section" id="figures">
+          <h2>建议图表</h2>
+          <ul><li>图 1：函数 Schema 文档质量等级。</li><li>表 1：工具调用任务集设计。</li><li>表 2：工具调用成功率评价指标。</li></ul>
+        </article>
+        <article class="paper-section" id="evaluation">
+          <h2>评价设计</h2>
+          <p>本文可采用案例研究、对比实验、专家评审或企业项目复盘进行验证。核心评价指标包括：</p>
+          <ul><li>工具选择准确率</li><li>参数生成正确率</li><li>一次调用成功率</li><li>无效调用率</li><li>多轮修正次数</li><li>错误恢复成功率</li><li>幻觉工具调用率</li></ul>
+        </article>
+        <article class="paper-section" id="limitations">
+          <h2>局限与未来工作</h2>
+          <ul><li>不同模型对 Schema 和自然语言描述的敏感性不同，结果需要跨模型验证。</li><li>真实业务工具具有权限、状态和副作用，实验工具集可能低估复杂性。</li></ul>
+        </article>
+        <article class="paper-section" id="references">
+          <h2>参考文献方向</h2>
+          <p>以下为写成正式投稿论文时建议补充和核验的文献方向：</p>
+          <ul><li>大模型 Function Calling 实践</li><li>工具调用与 Agent 评估研究</li><li>Schema 设计和 API 文档质量研究</li><li>人机交互中的错误恢复研究</li></ul>
+          <div class="actions">
+            <a class="button primary" href="document-quality-metrics.html">阅读下一篇</a>
+            <a class="button" href="../index.html#papers">返回选题库</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

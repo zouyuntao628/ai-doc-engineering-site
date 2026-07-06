@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI-ready 文档质量度量</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="../index.html"><span class="brand-mark">文</span><span>AI 文档工程</span></a>
+      <div class="nav-links"><a href="../index.html">首页</a><a href="tool-schema-quality.html">上一篇</a><a href="document-version-management.html">下一篇</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="paper-hero">
+      <p class="eyebrow">度量论文</p>
+      <h1>AI 辅助软件开发中的文档质量度量体系研究</h1>
+      <p class="lead">建立面向人类理解、机器消费、生成约束、可追踪性和长期演进的 AI-ready 文档质量评价模型。</p>
+      <div class="paper-meta"><span class="tag">质量度量</span><span class="tag">成熟度模型</span><span class="tag">AI-ready</span></div>
+    </section>
+    <section class="paper-layout">
+      <aside class="toc">
+        <a href="#question">研究问题</a><a href="#abstract">摘要</a><a href="#contributions">核心贡献</a><a href="#intro">正文</a><a href="#research-design">研究设计</a><a href="#figures">图表建议</a><a href="#evaluation">评价设计</a><a href="#limitations">局限展望</a><a href="#references">参考文献方向</a>
+      </aside>
+      <div class="paper-content">
+        <article class="paper-section" id="question">
+          <h2>研究问题</h2>
+          <p class="quote">在 AI 编程时代，如何评价一份软件文档是否真的能提升生成质量、协作质量和工程治理质量？</p>
+        </article>
+        <article class="paper-section" id="abstract">
+          <h2>摘要</h2>
+          <p>传统文档质量评价偏重完整性和可读性，但 AI 辅助开发要求文档能够被机器消费、约束生成、支持追踪并参与自动验证。本文提出 AI-ready 文档质量度量体系，从人类可理解性、机器可消费性、生成约束能力、可追踪性和演进能力五个方面评价文档质量，并提出五级文档成熟度模型，为团队改进文档资产提供可操作的评价框架。</p>
+          <h3>关键词</h3>
+          <div class="tag-row"><span class="tag">文档质量</span><span class="tag">AI-ready</span><span class="tag">成熟度模型</span><span class="tag">软件度量</span><span class="tag">人机协同</span></div>
+        </article>
+        <article class="paper-section" id="contributions">
+          <h2>核心贡献</h2>
+          <ul><li>提出 AI-ready 文档质量五维指标：人类可理解性、机器可消费性、生成约束能力、可追踪性和演进能力。</li><li>提出 0 到 4 分的评分方式和五级成熟度模型。</li><li>说明不同项目类型应采用不同权重的文档质量评价策略。</li></ul>
+        </article>
+        <article class="paper-section" id="intro">
+          <h2>引言</h2>
+          <p>AI 辅助开发使文档质量的影响更加直接。模糊文档会导致模糊生成，结构化文档则可以提升生成稳定性和验证效率。因此，评价文档不能只看是否写得完整，还要看它是否能被 AI 和工程工具有效使用。</p>
+        </article>
+        <article class="paper-section" id="section-1">
+          <h2>指标体系</h2>
+          <p>人类可理解性包括清晰度、一致性、可导航性和业务可解释性。机器可消费性包括结构化程度、Schema 完整性、字段约束和示例覆盖度。生成约束能力衡量文档能否限制 AI 生成范围、明确不允许行为和定义验收标准。可追踪性衡量需求、契约、代码、测试和决策之间是否能建立连接。演进能力衡量版本管理、兼容性审查和变更影响分析能力。</p>
+        </article>
+        <article class="paper-section" id="section-2">
+          <h2>度量方法</h2>
+          <p>每个指标可以采用 0 到 4 分评分。0 表示缺失，1 表示非结构化存在，2 表示面向人类可用，3 表示结构化且可追踪，4 表示可被工具自动验证或驱动生成。不同项目类型可设置不同权重，例如微服务项目提高契约和追踪权重，原型项目提高认知沉淀权重。</p>
+        </article>
+        <article class="paper-section" id="section-3">
+          <h2>成熟度模型</h2>
+          <p>Level 1 是非结构化说明，文档依赖个人经验。Level 2 是面向人的规范文档，能支持沟通。Level 3 是结构化且可追踪文档，能支持审查。Level 4 是机器可读并可驱动生成的文档。Level 5 是可验证、可编排、可自动演进的文档系统。</p>
+        </article>
+        <article class="paper-section" id="section-4">
+          <h2>应用方式</h2>
+          <p>团队可以按季度进行文档资产评估，识别低分文档。也可以在项目启动时根据项目类型设定目标成熟度。对于关键文档，如 API 契约、领域词汇表和工具 Schema，应进入代码审查和 CI 流程。</p>
+        </article>
+        <article class="paper-section" id="section-5">
+          <h2>结论</h2>
+          <p>AI-ready 文档质量度量体系把文档评价从主观可读性扩展到机器可消费性、生成约束和工程可验证性。该体系可以指导团队逐步提升文档资产的工程价值。</p>
+        </article>
+        <article class="paper-section" id="research-design">
+          <h2>研究设计</h2>
+          <p>可采用专家评分与项目指标关联分析。先让专家按照五维模型评价项目文档，再收集 AI 生成返工率、缺陷率和集成失败率，分析文档质量与工程结果之间的关系。</p><p>也可进行干预研究：针对低分文档进行结构化改造，再比较改造前后的 AI 生成表现。</p>
+        </article>
+        <article class="paper-section" id="figures">
+          <h2>建议图表</h2>
+          <ul><li>图 1：AI-ready 文档质量五维模型。</li><li>表 1：文档质量评分量表。</li><li>表 2：不同项目类型的指标权重建议。</li></ul>
+        </article>
+        <article class="paper-section" id="evaluation">
+          <h2>评价设计</h2>
+          <p>本文可采用案例研究、对比实验、专家评审或企业项目复盘进行验证。核心评价指标包括：</p>
+          <ul><li>人类可理解性评分</li><li>机器可消费性评分</li><li>生成约束能力评分</li><li>需求到测试可追踪率</li><li>文档变更影响分析覆盖率</li></ul>
+        </article>
+        <article class="paper-section" id="limitations">
+          <h2>局限与未来工作</h2>
+          <ul><li>文档质量评分可能存在主观性，需要通过多评审者一致性检验提高可靠性。</li><li>文档质量和工程结果之间可能受团队能力、工具链和项目复杂度共同影响。</li></ul>
+        </article>
+        <article class="paper-section" id="references">
+          <h2>参考文献方向</h2>
+          <p>以下为写成正式投稿论文时建议补充和核验的文献方向：</p>
+          <ul><li>软件质量度量研究</li><li>文档质量评价研究</li><li>Docs as Code 实践</li><li>AI 辅助软件工程评价方法</li></ul>
+          <div class="actions">
+            <a class="button primary" href="document-version-management.html">阅读下一篇</a>
+            <a class="button" href="../index.html#papers">返回选题库</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 时代 DDD 文档化</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="../index.html"><span class="brand-mark">文</span><span>AI 文档工程</span></a>
+      <div class="nav-links"><a href="../index.html">首页</a><a href="openapi-consistency.html">上一篇</a><a href="product-line-variation.html">下一篇</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="paper-hero">
+      <p class="eyebrow">场景 C：领域模型中心模型</p>
+      <h1>AI 时代领域驱动设计的文档化机制研究</h1>
+      <p class="lead">把统一语言、限界上下文、领域事件和业务不变量结构化，使 AI 能稳定理解业务语义并生成符合领域约束的实现。</p>
+      <div class="paper-meta"><span class="tag">DDD</span><span class="tag">统一语言</span><span class="tag">领域模型</span></div>
+    </section>
+    <section class="paper-layout">
+      <aside class="toc">
+        <a href="#question">研究问题</a><a href="#abstract">摘要</a><a href="#contributions">核心贡献</a><a href="#intro">正文</a><a href="#research-design">研究设计</a><a href="#figures">图表建议</a><a href="#evaluation">评价设计</a><a href="#limitations">局限展望</a><a href="#references">参考文献方向</a>
+      </aside>
+      <div class="paper-content">
+        <article class="paper-section" id="question">
+          <h2>研究问题</h2>
+          <p class="quote">如何让 AI 正确理解业务领域，并基于统一语言生成符合领域模型的软件实现？</p>
+        </article>
+        <article class="paper-section" id="abstract">
+          <h2>摘要</h2>
+          <p>AI 生成代码容易出现术语漂移、概念混淆和业务规则缺失。领域驱动设计强调统一语言、限界上下文、聚合、领域事件和业务不变量，但传统 DDD 文档往往面向人类沟通，不一定适合 AI 消费。本文提出 AI 时代 DDD 的文档化机制，把领域知识结构化、可追踪化和部分机器可读化，使其成为 AI 生成代码、测试和架构边界判断的稳定语义基础。</p>
+          <h3>关键词</h3>
+          <div class="tag-row"><span class="tag">领域驱动设计</span><span class="tag">统一语言</span><span class="tag">领域模型</span><span class="tag">业务不变量</span><span class="tag">AI 代码生成</span></div>
+        </article>
+        <article class="paper-section" id="contributions">
+          <h2>核心贡献</h2>
+          <ul><li>提出 AI 时代 DDD 的文档化机制，将统一语言和业务不变量转化为 AI 可消费的上下文。</li><li>说明领域词汇、限界上下文、领域事件和业务规则如何约束代码生成。</li><li>提出面向 AI 生成的领域语义一致性评价指标。</li></ul>
+        </article>
+        <article class="paper-section" id="intro">
+          <h2>引言</h2>
+          <p>AI 可以快速生成领域对象、服务和接口，但如果缺少统一语言，它会根据通用语料猜测业务概念，导致同一概念在不同模块中出现多个名称，或者把不同概念错误合并。对于长期演进的平台系统，这类语义漂移比语法错误更危险。</p>
+        </article>
+        <article class="paper-section" id="section-1">
+          <h2>AI 辅助 DDD 的挑战</h2>
+          <p>挑战包括概念命名不一致、限界上下文边界模糊、聚合规则被破坏、业务不变量缺少测试保护，以及不同产品线中的变异点污染核心领域模型。AI 生成代码时往往能满足局部需求，却不一定尊重领域模型的整体结构。</p>
+        </article>
+        <article class="paper-section" id="section-2">
+          <h2>文档化机制</h2>
+          <p>机制的核心是建立领域模型中心文档。统一语言词汇表定义业务概念、别名、禁用词、示例和反例。限界上下文说明定义上下文职责、外部依赖和集成方式。领域模型图以文本化方式描述实体、值对象、聚合、领域服务和领域事件。业务不变量文档列出必须被代码和测试共同保护的规则。</p>
+        </article>
+        <article class="paper-section" id="section-3">
+          <h2>机器可读化</h2>
+          <p>并非所有 DDD 内容都需要形式化，但关键概念和规则应尽量结构化。例如词汇表可以使用 YAML，领域事件可以使用 Schema，业务规则可以转化为验收测试，限界上下文依赖可以用依赖矩阵表达。这样 AI 在生成代码时可以读取明确的语义边界。</p>
+        </article>
+        <article class="paper-section" id="section-4">
+          <h2>实施流程</h2>
+          <p>先由领域专家和工程团队共同维护统一语言，再把核心业务不变量写入测试策略。新功能开发时，AI 必须先读取相关限界上下文和词汇表，再生成代码和测试。代码审查时，除了检查语法和性能，还要检查是否违反领域命名、聚合边界和业务不变量。</p>
+        </article>
+        <article class="paper-section" id="section-5">
+          <h2>结论</h2>
+          <p>AI 时代的 DDD 不只是建模方法，更是 AI 生成的语义控制机制。通过结构化领域文档，团队可以降低概念漂移，提升代码与业务模型的一致性。</p>
+        </article>
+        <article class="paper-section" id="research-design">
+          <h2>研究设计</h2>
+          <p>可选择一个领域复杂项目，分别在无领域文档、自然语言领域说明、结构化领域文档三种条件下让 AI 生成模块代码。</p><p>评价重点包括命名一致性、聚合边界遵守情况、业务不变量测试通过率和领域事件使用正确性。</p>
+        </article>
+        <article class="paper-section" id="figures">
+          <h2>建议图表</h2>
+          <ul><li>图 1：领域模型中心文档驱动 AI 生成流程。</li><li>表 1：统一语言词汇表模板。</li><li>表 2：业务不变量到测试用例的映射示例。</li></ul>
+        </article>
+        <article class="paper-section" id="evaluation">
+          <h2>评价设计</h2>
+          <p>本文可采用案例研究、对比实验、专家评审或企业项目复盘进行验证。核心评价指标包括：</p>
+          <ul><li>术语一致率</li><li>领域规则测试覆盖率</li><li>限界上下文违规发现率</li><li>业务不变量实现正确率</li><li>AI 生成代码概念漂移数量</li></ul>
+        </article>
+        <article class="paper-section" id="limitations">
+          <h2>局限与未来工作</h2>
+          <ul><li>领域模型文档需要领域专家参与，短期内难以完全由 AI 自动生成。</li><li>复杂业务规则的形式化表达存在成本，后续可研究轻量 DSL 或规则模板。</li></ul>
+        </article>
+        <article class="paper-section" id="references">
+          <h2>参考文献方向</h2>
+          <p>以下为写成正式投稿论文时建议补充和核验的文献方向：</p>
+          <ul><li>领域驱动设计经典文献</li><li>限界上下文和事件风暴实践</li><li>软件架构文档研究</li><li>LLM 语义一致性和代码生成研究</li></ul>
+          <div class="actions">
+            <a class="button primary" href="product-line-variation.html">阅读下一篇</a>
+            <a class="button" href="../index.html#papers">返回选题库</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

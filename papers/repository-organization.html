@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 编程文档仓库</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="../index.html"><span class="brand-mark">文</span><span>AI 文档工程</span></a>
+      <div class="nav-links"><a href="../index.html">首页</a><a href="document-version-management.html">上一篇</a><a href="paradigm-shift.html">回到第一篇</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="paper-hero">
+      <p class="eyebrow">工具落地论文</p>
+      <h1>面向 AI 编程的软件文档仓库组织模式研究</h1>
+      <p class="lead">设计 AI-ready 文档仓库结构，使文档同时服务人类开发者、AI 编程助手、CI 检查和长期演进。</p>
+      <div class="paper-meta"><span class="tag">文档仓库</span><span class="tag">Docs as Code</span><span class="tag">工具链</span></div>
+    </section>
+    <section class="paper-layout">
+      <aside class="toc">
+        <a href="#question">研究问题</a><a href="#abstract">摘要</a><a href="#contributions">核心贡献</a><a href="#intro">正文</a><a href="#research-design">研究设计</a><a href="#figures">图表建议</a><a href="#evaluation">评价设计</a><a href="#limitations">局限展望</a><a href="#references">参考文献方向</a>
+      </aside>
+      <div class="paper-content">
+        <article class="paper-section" id="question">
+          <h2>研究问题</h2>
+          <p class="quote">项目仓库里的文档应如何组织，才能同时支持人类理解、AI 读取、自动验证和长期演进？</p>
+        </article>
+        <article class="paper-section" id="abstract">
+          <h2>摘要</h2>
+          <p>AI 编程助手依赖项目上下文，而上下文质量取决于文档结构、命名、入口和可机器读取程度。本文提出面向 AI 编程的软件文档仓库组织模式，把产品、架构、API、领域、实验、Agent 和质量文档分层组织，并讨论文档与 CI、代码生成和测试生成的连接方式。该模式可作为企业项目模板或开源脚手架，帮助团队把文档管理落实为可复制的仓库结构。</p>
+          <h3>关键词</h3>
+          <div class="tag-row"><span class="tag">文档仓库</span><span class="tag">Docs as Code</span><span class="tag">AI-ready</span><span class="tag">项目脚手架</span><span class="tag">工程工具链</span></div>
+        </article>
+        <article class="paper-section" id="contributions">
+          <h2>核心贡献</h2>
+          <ul><li>提出面向 AI 编程的文档仓库目录结构。</li><li>说明不同项目类型如何裁剪文档目录，避免一刀切。</li><li>提出文档仓库与 AI 上下文、CI 检查和代码审查流程的集成方式。</li></ul>
+        </article>
+        <article class="paper-section" id="intro">
+          <h2>引言</h2>
+          <p>AI 编程助手读取项目上下文时，最怕信息散乱、命名不一致和入口不清楚。如果文档分散在聊天记录、个人笔记和过期 Wiki 中，AI 很难稳定理解项目。将文档与代码同仓管理，可以让文档进入版本管理、代码审查和自动化流程。</p>
+        </article>
+        <article class="paper-section" id="section-1">
+          <h2>组织原则</h2>
+          <p>文档仓库应遵循五个原则。第一，入口明确，AI 和人都能从 README 或 docs/index 找到上下文。第二，按文档职能分层，而不是按作者分散。第三，关键约束结构化，例如 API、领域词汇和工具 Schema。第四，文档与代码建立追踪关系。第五，文档变更能够触发自动检查。</p>
+        </article>
+        <article class="paper-section" id="section-2">
+          <h2>推荐结构</h2>
+          <p>推荐目录包括 /docs/product、/docs/architecture、/docs/api、/docs/domain、/docs/experiments、/docs/agent 和 /docs/quality。product 存放愿景、用户故事和验收标准；architecture 存放架构决策和约束；api 存放 OpenAPI、AsyncAPI 和错误码；domain 存放统一语言和领域模型；experiments 存放实验日志和提取卡；agent 存放工具定义、编排规则和记忆策略；quality 存放测试策略和质量门禁。</p>
+        </article>
+        <article class="paper-section" id="section-3">
+          <h2>不同项目的裁剪</h2>
+          <p>探索型项目可以重点保留 product、experiments 和 quality。微服务项目应强化 api、architecture 和 quality。平台型项目应强化 domain、architecture 和 product-line 配置。Agent 项目应强化 agent、api 和 quality。仓库结构不应一刀切，而应依据多维项目分类进行裁剪。</p>
+        </article>
+        <article class="paper-section" id="section-4">
+          <h2>工具链集成</h2>
+          <p>CI 可以检查 OpenAPI 格式、链接有效性、领域词汇引用、工具 Schema 合法性和文档更新时间。AI 生成任务可以指定读取 docs/index、相关领域文档和接口契约。代码审查模板可以要求说明相关文档是否同步更新。</p>
+        </article>
+        <article class="paper-section" id="section-5">
+          <h2>结论</h2>
+          <p>面向 AI 编程的文档仓库组织模式把文档从零散资料转化为工程资产。清晰目录、结构化关键文档和自动化检查可以显著提升 AI 上下文质量和团队长期维护能力。</p>
+        </article>
+        <article class="paper-section" id="research-design">
+          <h2>研究设计</h2>
+          <p>可通过仓库迁移案例验证。选择一个文档分散的项目，按推荐结构整理文档，再比较新成员理解时间、AI 任务上下文准备时间和文档链接失效率。</p><p>也可以通过可用性测试，让开发者和 AI 助手分别在旧仓库和新仓库中完成同类任务，比较定位信息和完成任务的效率。</p>
+        </article>
+        <article class="paper-section" id="figures">
+          <h2>建议图表</h2>
+          <ul><li>图 1：AI-ready 文档仓库目录结构。</li><li>图 2：文档仓库与 AI 编程助手、CI、代码审查的集成关系。</li><li>表 1：不同项目类型的目录裁剪建议。</li></ul>
+        </article>
+        <article class="paper-section" id="evaluation">
+          <h2>评价设计</h2>
+          <p>本文可采用案例研究、对比实验、专家评审或企业项目复盘进行验证。核心评价指标包括：</p>
+          <ul><li>AI 上下文定位时间</li><li>文档链接有效率</li><li>文档与代码同步率</li><li>CI 文档检查通过率</li><li>新成员理解项目所需时间</li></ul>
+        </article>
+        <article class="paper-section" id="limitations">
+          <h2>局限与未来工作</h2>
+          <ul><li>目录结构只能解决信息组织问题，不能自动保证文档内容质量。</li><li>不同团队已有工具链差异较大，仓库模板需要提供可配置版本。</li></ul>
+        </article>
+        <article class="paper-section" id="references">
+          <h2>参考文献方向</h2>
+          <p>以下为写成正式投稿论文时建议补充和核验的文献方向：</p>
+          <ul><li>Docs as Code 实践</li><li>软件仓库组织研究</li><li>项目知识管理方法</li><li>AI 编程助手上下文管理实践</li></ul>
+          <div class="actions">
+            <a class="button primary" href="paradigm-shift.html">回到第一篇</a>
+            <a class="button" href="../index.html#papers">返回选题库</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

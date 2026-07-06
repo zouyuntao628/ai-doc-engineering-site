@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>契约中心微服务文档模型</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="../index.html"><span class="brand-mark">文</span><span>AI 文档工程</span></a>
+      <div class="nav-links"><a href="../index.html">首页</a><a href="vibe-coding-cognition.html">上一篇</a><a href="openapi-consistency.html">下一篇</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="paper-hero">
+      <p class="eyebrow">场景 B：契约中心模型</p>
+      <h1>AI 辅助微服务开发中的契约中心文档模型研究</h1>
+      <p class="lead">以 API 契约、事件 Schema 和服务蓝图作为多个团队与 AI 共同遵循的唯一真相源。</p>
+      <div class="paper-meta"><span class="tag">微服务</span><span class="tag">API 契约</span><span class="tag">质量优先</span></div>
+    </section>
+    <section class="paper-layout">
+      <aside class="toc">
+        <a href="#question">研究问题</a><a href="#abstract">摘要</a><a href="#contributions">核心贡献</a><a href="#intro">正文</a><a href="#research-design">研究设计</a><a href="#figures">图表建议</a><a href="#evaluation">评价设计</a><a href="#limitations">局限展望</a><a href="#references">参考文献方向</a>
+      </aside>
+      <div class="paper-content">
+        <article class="paper-section" id="question">
+          <h2>研究问题</h2>
+          <p class="quote">当多个团队和 AI 同时生成微服务代码时，如何保持接口、事件、错误处理和端到端流程一致？</p>
+        </article>
+        <article class="paper-section" id="abstract">
+          <h2>摘要</h2>
+          <p>微服务系统的复杂性来自服务边界、接口契约、事件链和跨团队协作。AI 生成代码可以提高局部开发效率，但也可能引入字段语义漂移、兼容性破坏、错误处理不一致和端到端流程断裂。本文提出契约中心文档模型，把 OpenAPI、AsyncAPI、事件 Schema、服务蓝图、错误码规范和兼容性策略作为唯一真相源，并将其用于代码生成、测试生成、Mock 服务、消费者契约验证和破坏性变更审查。</p>
+          <h3>关键词</h3>
+          <div class="tag-row"><span class="tag">微服务</span><span class="tag">契约驱动开发</span><span class="tag">OpenAPI</span><span class="tag">AsyncAPI</span><span class="tag">AI 代码生成</span></div>
+        </article>
+        <article class="paper-section" id="contributions">
+          <h2>核心贡献</h2>
+          <ul><li>提出 AI 辅助微服务开发中的契约中心文档模型，强调 API 和事件契约作为唯一真相源。</li><li>将服务蓝图纳入契约模型，弥补单个接口文档无法表达端到端业务流的问题。</li><li>提出契约文档驱动代码生成、Mock、契约测试和兼容性审查的工程流程。</li></ul>
+        </article>
+        <article class="paper-section" id="intro">
+          <h2>引言</h2>
+          <p>微服务开发强调自治团队和服务解耦，但也因此产生大量接口和事件边界。AI 加入后，局部服务实现变得更快，但系统级一致性更容易被破坏。一个模型生成的字段名、错误码或事件语义，可能与其他服务的预期不一致。</p><p>因此，AI 辅助微服务开发必须把契约置于中心位置。契约不是接口说明的附件，而是驱动生成、测试和审查的事实源。</p>
+        </article>
+        <article class="paper-section" id="section-1">
+          <h2>风险分析</h2>
+          <p>主要风险包括接口字段漂移、请求和响应语义不一致、错误处理策略不统一、事件发布和消费不匹配、版本升级破坏消费者，以及端到端流程缺少整体视图。AI 往往能完成单个服务的局部实现，却不天然理解跨服务业务流。</p><p>这些风险说明，微服务项目的文档核心不是冗长设计说明，而是可验证、可版本化、可被 AI 和工具共同消费的契约。</p>
+        </article>
+        <article class="paper-section" id="section-2">
+          <h2>契约中心文档模型</h2>
+          <p>模型包括四类核心文档。第一是 API 规格，使用 OpenAPI 描述路径、方法、参数、响应、错误码、鉴权和版本。第二是事件规格，使用 AsyncAPI 或事件 Schema 描述主题、载荷、生命周期和兼容性。第三是服务蓝图，描述跨服务业务流、事件链、补偿逻辑和异常分支。第四是契约审查记录，记录破坏性变更、消费者影响和迁移策略。</p>
+        </article>
+        <article class="paper-section" id="section-3">
+          <h2>工程流程</h2>
+          <p>实施时，应先让契约进入代码之前。新功能先提交契约变更，经过消费者和平台审查后再由 AI 生成服务端框架、客户端 SDK、Mock 服务和契约测试。CI 中应加入契约兼容性检查，任何破坏性变更都需要显式说明迁移方案。</p><p>服务蓝图用于弥补单个 API 文档无法表达端到端流程的问题。AI 在生成跨服务业务逻辑时，应同时读取 API 契约和服务蓝图。</p>
+        </article>
+        <article class="paper-section" id="section-4">
+          <h2>讨论</h2>
+          <p>契约中心模型可能增加前期成本，但在多团队和高质量场景中，这种成本低于集成失败和线上不兼容的代价。对于成长型产品，契约文档还可以成为跨团队协作语言，使 AI 生成的局部实现服从系统整体性。</p>
+        </article>
+        <article class="paper-section" id="section-5">
+          <h2>结论</h2>
+          <p>在 AI 辅助微服务开发中，API 和事件契约应成为唯一真相源。契约中心文档模型通过机器可读规格、服务蓝图和兼容性审查，降低 AI 局部生成带来的系统级一致性风险。</p>
+        </article>
+        <article class="paper-section" id="research-design">
+          <h2>研究设计</h2>
+          <p>可在微服务项目中选择若干服务作为样本，比较采用自然语言接口说明和采用 OpenAPI/AsyncAPI 契约时的 AI 生成质量。</p><p>评价可以分为静态检查和集成测试两部分：静态检查字段、错误码和事件结构，集成测试检查服务间调用、消费者契约和端到端流程。</p>
+        </article>
+        <article class="paper-section" id="figures">
+          <h2>建议图表</h2>
+          <ul><li>图 1：契约中心文档驱动微服务开发流程。</li><li>图 2：服务蓝图与 API 契约、事件契约之间的关系。</li><li>表 1：微服务契约文档清单和质量检查项。</li></ul>
+        </article>
+        <article class="paper-section" id="evaluation">
+          <h2>评价设计</h2>
+          <p>本文可采用案例研究、对比实验、专家评审或企业项目复盘进行验证。核心评价指标包括：</p>
+          <ul><li>契约覆盖率</li><li>破坏性变更发现率</li><li>API 一致性错误数量</li><li>端到端蓝图覆盖率</li><li>AI 生成代码一次集成成功率</li></ul>
+        </article>
+        <article class="paper-section" id="limitations">
+          <h2>局限与未来工作</h2>
+          <ul><li>契约优先会增加前期设计成本，不适合所有低风险原型。</li><li>服务蓝图需要持续维护，若缺少自动化检查，仍可能与实现脱节。</li></ul>
+        </article>
+        <article class="paper-section" id="references">
+          <h2>参考文献方向</h2>
+          <p>以下为写成正式投稿论文时建议补充和核验的文献方向：</p>
+          <ul><li>微服务架构与服务边界研究</li><li>契约驱动开发和消费者驱动契约</li><li>OpenAPI 与 AsyncAPI 规范</li><li>API 版本管理和兼容性治理实践</li></ul>
+          <div class="actions">
+            <a class="button primary" href="openapi-consistency.html">阅读下一篇</a>
+            <a class="button" href="../index.html#papers">返回选题库</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>多产品线变异点管理</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="../index.html"><span class="brand-mark">文</span><span>AI 文档工程</span></a>
+      <div class="nav-links"><a href="../index.html">首页</a><a href="ddd-documentation.html">上一篇</a><a href="agent-machine-interface.html">下一篇</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="paper-hero">
+      <p class="eyebrow">平台治理论文</p>
+      <h1>面向多产品线的软件平台文档模型与变异点管理研究</h1>
+      <p class="lead">通过平台能力地图、特性配置矩阵和变异点文档管理不同客户、行业和市场版本差异。</p>
+      <div class="paper-meta"><span class="tag">平台型</span><span class="tag">产品线</span><span class="tag">变异点</span></div>
+    </section>
+    <section class="paper-layout">
+      <aside class="toc">
+        <a href="#question">研究问题</a><a href="#abstract">摘要</a><a href="#contributions">核心贡献</a><a href="#intro">正文</a><a href="#research-design">研究设计</a><a href="#figures">图表建议</a><a href="#evaluation">评价设计</a><a href="#limitations">局限展望</a><a href="#references">参考文献方向</a>
+      </aside>
+      <div class="paper-content">
+        <article class="paper-section" id="question">
+          <h2>研究问题</h2>
+          <p class="quote">平台型项目如何通过文档管理通用能力和产品差异，使 AI 能正确生成不同产品线的实现？</p>
+        </article>
+        <article class="paper-section" id="abstract">
+          <h2>摘要</h2>
+          <p>平台型项目需要在复用和差异化之间保持平衡。AI 可以快速生成定制代码，但若缺少变异点文档，容易污染平台核心、复制临时分支或引入不可追踪差异。本文提出面向多产品线的软件平台文档模型，以平台能力地图、特性配置矩阵、变异点说明和架构约束支持配置驱动生成，使 AI 能在明确边界内完成产品线差异实现。</p>
+          <h3>关键词</h3>
+          <div class="tag-row"><span class="tag">软件产品线</span><span class="tag">平台工程</span><span class="tag">变异点管理</span><span class="tag">特性配置</span><span class="tag">AI 代码生成</span></div>
+        </article>
+        <article class="paper-section" id="contributions">
+          <h2>核心贡献</h2>
+          <ul><li>将软件产品线中的变异点管理引入 AI 辅助平台开发文档模型。</li><li>提出平台能力地图、特性配置矩阵和变异点说明三类核心文档。</li><li>定义 AI 生成定制功能时应遵循的配置优先和扩展点优先原则。</li></ul>
+        </article>
+        <article class="paper-section" id="intro">
+          <h2>引言</h2>
+          <p>平台型软件的目标是用稳定核心支持多个产品线、客户版本或行业方案。AI 生成能力增强后，团队更容易为单个客户快速生成定制实现，但也更容易破坏平台复用边界。没有文档化的变异点，定制代码会逐渐侵入平台核心。</p>
+        </article>
+        <article class="paper-section" id="section-1">
+          <h2>核心矛盾</h2>
+          <p>平台建设的核心矛盾是通用能力的稳定性与差异需求的变化性。AI 能放大两者：它能提高差异实现速度，也能在缺少约束时制造更多隐性分支。因此平台文档必须明确哪些能力属于核心，哪些能力允许配置，哪些能力必须通过扩展点实现。</p>
+        </article>
+        <article class="paper-section" id="section-2">
+          <h2>文档模型</h2>
+          <p>平台能力地图描述核心能力、扩展能力、实验能力和禁止定制区域。特性配置矩阵描述不同产品线、客户、地区或行业版本启用哪些能力。变异点说明描述差异类型、决策条件、实现策略、测试要求和回滚方式。架构约束文档定义平台核心与产品扩展之间的边界。</p>
+        </article>
+        <article class="paper-section" id="section-3">
+          <h2>AI 生成约束</h2>
+          <p>当 AI 为某个产品线生成代码时，应先读取特性配置矩阵和变异点说明。如果差异属于已有变异点，AI 应在扩展点或配置层实现；如果差异超出现有变异点，AI 应生成变异点提案而不是直接修改核心代码。这样可以把 AI 的快速生成转化为受控扩展。</p>
+        </article>
+        <article class="paper-section" id="section-4">
+          <h2>治理流程</h2>
+          <p>建议建立变异点评审机制。新增客户差异先进入变异点文档，评估是否已有配置支持、是否需要新增扩展点、是否会污染核心模型。评审通过后，再生成实现和测试。版本发布时，应检查配置矩阵与代码实现是否一致。</p>
+        </article>
+        <article class="paper-section" id="section-5">
+          <h2>结论</h2>
+          <p>多产品线平台需要把变异点作为一等文档资产。平台能力地图、特性配置矩阵和变异点说明可以让 AI 在可复用边界内生成差异实现，提升新产品线交付效率并保护平台核心。</p>
+        </article>
+        <article class="paper-section" id="research-design">
+          <h2>研究设计</h2>
+          <p>可在多客户 SaaS 或行业软件平台中选取功能变体作为样本，分析现有差异实现方式，再引入变异点文档进行重构。</p><p>对比指标包括新增客户版本所需时间、平台核心修改次数、重复代码比例和变体测试覆盖率。</p>
+        </article>
+        <article class="paper-section" id="figures">
+          <h2>建议图表</h2>
+          <ul><li>图 1：平台核心、扩展点和产品变体关系图。</li><li>表 1：特性配置矩阵示例。</li><li>表 2：变异点说明模板。</li></ul>
+        </article>
+        <article class="paper-section" id="evaluation">
+          <h2>评价设计</h2>
+          <p>本文可采用案例研究、对比实验、专家评审或企业项目复盘进行验证。核心评价指标包括：</p>
+          <ul><li>新产品线生成效率</li><li>变异点复用率</li><li>平台核心代码污染率</li><li>差异实现可追踪率</li><li>配置到实现一致性</li></ul>
+        </article>
+        <article class="paper-section" id="limitations">
+          <h2>局限与未来工作</h2>
+          <ul><li>平台变异点的识别依赖长期业务经验，早期项目可能难以准确划分核心和扩展。</li><li>过度配置化会增加系统复杂度，后续应研究配置化和代码分支之间的边界。</li></ul>
+        </article>
+        <article class="paper-section" id="references">
+          <h2>参考文献方向</h2>
+          <p>以下为写成正式投稿论文时建议补充和核验的文献方向：</p>
+          <ul><li>软件产品线工程研究</li><li>Feature Model 和变异点管理</li><li>平台工程和架构治理实践</li><li>配置驱动开发方法</li></ul>
+          <div class="actions">
+            <a class="button primary" href="agent-machine-interface.html">阅读下一篇</a>
+            <a class="button" href="../index.html#papers">返回选题库</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

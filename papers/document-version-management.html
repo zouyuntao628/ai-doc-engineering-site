@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文档版本管理</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="../index.html"><span class="brand-mark">文</span><span>AI 文档工程</span></a>
+      <div class="nav-links"><a href="../index.html">首页</a><a href="document-quality-metrics.html">上一篇</a><a href="repository-organization.html">下一篇</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="paper-hero">
+      <p class="eyebrow">治理论文</p>
+      <h1>从代码版本管理到文档版本管理：AI 编程时代的软件配置管理扩展研究</h1>
+      <p class="lead">把配置管理对象从代码扩展到 Prompt、实验日志、API 契约、领域模型、工具定义和 Agent 编排规则。</p>
+      <div class="paper-meta"><span class="tag">版本管理</span><span class="tag">配置管理</span><span class="tag">文档资产</span></div>
+    </section>
+    <section class="paper-layout">
+      <aside class="toc">
+        <a href="#question">研究问题</a><a href="#abstract">摘要</a><a href="#contributions">核心贡献</a><a href="#intro">正文</a><a href="#research-design">研究设计</a><a href="#figures">图表建议</a><a href="#evaluation">评价设计</a><a href="#limitations">局限展望</a><a href="#references">参考文献方向</a>
+      </aside>
+      <div class="paper-content">
+        <article class="paper-section" id="question">
+          <h2>研究问题</h2>
+          <p class="quote">当 AI 可以快速生成代码后，软件配置管理是否应从代码版本扩展到文档版本和知识资产版本？</p>
+        </article>
+        <article class="paper-section" id="abstract">
+          <h2>摘要</h2>
+          <p>AI 编程降低了代码生产成本，但使需求、Prompt、契约、领域模型和 Agent 规则的版本一致性变得更加关键。本文提出文档配置管理模型，把文档资产纳入软件配置项，研究文档版本、代码版本、测试版本和 Agent 行为版本之间的追踪关系。该模型覆盖探索资产、契约资产、领域资产和 Agent 资产，并提出文档变更触发测试、兼容性审查和行为回归评估的治理流程。</p>
+          <h3>关键词</h3>
+          <div class="tag-row"><span class="tag">软件配置管理</span><span class="tag">文档版本管理</span><span class="tag">Prompt 管理</span><span class="tag">知识资产</span><span class="tag">AI 编程治理</span></div>
+        </article>
+        <article class="paper-section" id="contributions">
+          <h2>核心贡献</h2>
+          <ul><li>提出文档配置管理模型，将 Prompt、实验日志、契约、领域模型和 Agent 规则纳入配置项。</li><li>定义文档版本、代码版本、测试版本和 Agent 行为版本之间的追踪关系。</li><li>提出文档变更触发测试、兼容性审查和行为回归的治理流程。</li></ul>
+        </article>
+        <article class="paper-section" id="intro">
+          <h2>引言</h2>
+          <p>传统软件配置管理围绕代码、依赖、构建脚本和发布版本展开。AI 编程时代，代码仍然重要，但许多关键变化首先发生在文档层：Prompt 改变会改变生成结果，API 契约改变会影响多个服务，领域词汇改变会影响命名和测试，Agent 编排规则改变会影响运行行为。</p>
+        </article>
+        <article class="paper-section" id="section-1">
+          <h2>新增配置项</h2>
+          <p>探索资产包括 Prompt、对话记录、实验日志和结构化提取卡。契约资产包括 OpenAPI、AsyncAPI、事件 Schema 和错误码。领域资产包括统一语言、限界上下文、业务不变量和变异点。Agent 资产包括工具定义、编排规则、记忆策略和人机协同协议。这些资产都应有版本、审查和变更记录。</p>
+        </article>
+        <article class="paper-section" id="section-2">
+          <h2>版本关系模型</h2>
+          <p>文档版本、代码版本和测试版本之间应建立显式关系。例如 API 契约 v2 应对应服务实现 v2、客户端 SDK v2 和契约测试 v2。领域模型变更应对应代码命名、数据库结构和领域测试变更。工具 Schema 变更应对应 Agent 回归任务集。</p>
+        </article>
+        <article class="paper-section" id="section-3">
+          <h2>治理流程</h2>
+          <p>文档变更应先分类。低风险说明性变更可以轻量审查；契约、领域规则和 Agent 行为规则变更需要影响分析。影响分析结果决定是否触发代码生成、测试更新、兼容性审查、数据迁移或人类确认。发布时，文档版本应与代码版本共同进入 Release Notes。</p>
+        </article>
+        <article class="paper-section" id="section-4">
+          <h2>工具支持</h2>
+          <p>文档配置管理可以基于 Git 实现，但需要补充文档类型识别、依赖关系索引和自动检查。例如 API 文件变更触发契约测试，领域词汇变更触发命名扫描，工具 Schema 变更触发 Agent 任务回归。</p>
+        </article>
+        <article class="paper-section" id="section-5">
+          <h2>结论</h2>
+          <p>AI 编程时代的软件配置管理应从代码扩展到文档和知识资产。文档版本管理不是行政工作，而是保证 AI 生成、系统集成和 Agent 行为一致性的工程机制。</p>
+        </article>
+        <article class="paper-section" id="research-design">
+          <h2>研究设计</h2>
+          <p>可选择一个持续迭代项目，统计历史缺陷中有多少来自文档与代码、契约与实现、领域规则与测试之间的不一致。</p><p>引入文档配置管理流程后，再比较版本不一致缺陷数量、影响分析时间和发布回滚次数。</p>
+        </article>
+        <article class="paper-section" id="figures">
+          <h2>建议图表</h2>
+          <ul><li>图 1：AI 编程时代的软件配置项扩展模型。</li><li>图 2：文档变更影响分析流程。</li><li>表 1：文档配置项类型、版本策略和触发检查。</li></ul>
+        </article>
+        <article class="paper-section" id="evaluation">
+          <h2>评价设计</h2>
+          <p>本文可采用案例研究、对比实验、专家评审或企业项目复盘进行验证。核心评价指标包括：</p>
+          <ul><li>文档配置项覆盖率</li><li>文档到代码追踪率</li><li>变更影响分析准确率</li><li>文档变更触发测试覆盖率</li><li>版本不一致缺陷数量</li></ul>
+        </article>
+        <article class="paper-section" id="limitations">
+          <h2>局限与未来工作</h2>
+          <ul><li>过度版本化会增加管理负担，需要区分关键文档和普通说明性文档。</li><li>文档与代码之间的自动追踪仍需要工具支持，手工维护成本较高。</li></ul>
+        </article>
+        <article class="paper-section" id="references">
+          <h2>参考文献方向</h2>
+          <p>以下为写成正式投稿论文时建议补充和核验的文献方向：</p>
+          <ul><li>软件配置管理研究</li><li>需求追踪和变更影响分析</li><li>API 版本管理实践</li><li>Prompt 管理和 AI 工程治理研究</li></ul>
+          <div class="actions">
+            <a class="button primary" href="repository-organization.html">阅读下一篇</a>
+            <a class="button" href="../index.html#papers">返回选题库</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent 机器界面文档</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="../index.html"><span class="brand-mark">文</span><span>AI 文档工程</span></a>
+      <div class="nav-links"><a href="../index.html">首页</a><a href="product-line-variation.html">上一篇</a><a href="tool-schema-quality.html">下一篇</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="paper-hero">
+      <p class="eyebrow">场景 D：智能体编排模型</p>
+      <h1>AI Agent 应用开发中的机器界面文档模型研究</h1>
+      <p class="lead">提出面向 AI 自身使用的机器界面文档，覆盖工具定义、任务规划、路由规则、记忆策略和人类求助协议。</p>
+      <div class="paper-meta"><span class="tag">Agent</span><span class="tag">机器界面</span><span class="tag">工具 Schema</span></div>
+    </section>
+    <section class="paper-layout">
+      <aside class="toc">
+        <a href="#question">研究问题</a><a href="#abstract">摘要</a><a href="#contributions">核心贡献</a><a href="#intro">正文</a><a href="#research-design">研究设计</a><a href="#figures">图表建议</a><a href="#evaluation">评价设计</a><a href="#limitations">局限展望</a><a href="#references">参考文献方向</a>
+      </aside>
+      <div class="paper-content">
+        <article class="paper-section" id="question">
+          <h2>研究问题</h2>
+          <p class="quote">Agent 应用的核心文档应如何组织，才能让 AI 可靠理解工具、规则、记忆和异常处理？</p>
+        </article>
+        <article class="paper-section" id="abstract">
+          <h2>摘要</h2>
+          <p>AI Agent 的行为由模型推理、工具调用、上下文记忆和编排规则共同决定。传统面向用户或开发者的文档不足以约束 Agent 行为。本文提出“机器界面文档”概念，把工具 Schema、路由规则、任务规划规则、记忆策略、异常处理和人机协同协议作为 Agent 应用的核心文档资产。该模型的目标是提高 Agent 的工具选择准确率、参数生成正确率、异常恢复率和人类求助时机准确率。</p>
+          <h3>关键词</h3>
+          <div class="tag-row"><span class="tag">AI Agent</span><span class="tag">机器界面</span><span class="tag">工具调用</span><span class="tag">编排规则</span><span class="tag">人机协同</span></div>
+        </article>
+        <article class="paper-section" id="contributions">
+          <h2>核心贡献</h2>
+          <ul><li>提出机器界面文档概念，区别于面向人的用户界面和开发者文档。</li><li>建立工具定义、编排规则、记忆策略和人机协同协议四类 Agent 核心文档。</li><li>提出 Agent 文档成熟度模型，用于评价 Agent 行为可控性。</li></ul>
+        </article>
+        <article class="paper-section" id="intro">
+          <h2>引言</h2>
+          <p>传统软件主要通过用户界面与人交互，通过 API 与系统交互。Agent 应用还需要一种新的界面：面向 AI 自身的机器界面。这个界面不是屏幕组件，而是工具、规则、记忆和求助协议的组合。没有机器界面文档，Agent 即使拥有工具，也不知道何时使用、如何使用和失败后如何恢复。</p>
+        </article>
+        <article class="paper-section" id="section-1">
+          <h2>Agent 文档需求</h2>
+          <p>Agent 行为具有不确定性，既受模型能力影响，也受上下文和工具描述影响。因此 Agent 文档必须回答四个问题：有哪些工具可用，每个工具的边界是什么；任务应如何分解和路由；记忆应何时读写；遇到权限、歧义或高风险操作时如何向人求助。</p>
+        </article>
+        <article class="paper-section" id="section-2">
+          <h2>机器界面文档模型</h2>
+          <p>工具定义文档包括函数名、用途、参数 Schema、返回结构、权限、副作用和错误类型。编排规则文档包括任务规划、工具选择、路由、停止条件和异常恢复。记忆策略文档包括写入条件、读取范围、保留周期和隐私边界。人机协同协议包括求助时机、问题格式、必须确认的操作和升级路径。</p>
+        </article>
+        <article class="paper-section" id="section-3">
+          <h2>成熟度模型</h2>
+          <p>Level 1 的 Agent 只有自然语言提示和少量工具描述；Level 2 有完整工具 Schema；Level 3 有编排规则和错误处理；Level 4 有记忆策略和人机协同协议；Level 5 有自动评估、回归测试和文档版本治理。成熟度越高，Agent 行为越可控。</p>
+        </article>
+        <article class="paper-section" id="section-4">
+          <h2>实施方法</h2>
+          <p>构建 Agent 时，应先把工具定义写清楚，再补充正例和反例。对于复杂任务，应使用决策表或状态机描述路由规则。对于高风险工具，应要求人类确认。每次 Agent 失败后，应判断问题来自模型能力、工具实现还是机器界面文档缺失，并相应更新文档。</p>
+        </article>
+        <article class="paper-section" id="section-5">
+          <h2>结论</h2>
+          <p>AI Agent 应用需要机器界面文档作为核心工程资产。工具 Schema、编排规则、记忆策略和人机协同协议共同决定 Agent 是否可靠、可控和可演进。</p>
+        </article>
+        <article class="paper-section" id="research-design">
+          <h2>研究设计</h2>
+          <p>可构造多工具任务环境，让 Agent 在不同文档完整度下执行任务。比较工具选择、参数填写、异常恢复和求助行为。</p><p>同时可以记录失败案例，将失败归因到工具描述不足、路由规则缺失、记忆策略错误或求助协议不清晰。</p>
+        </article>
+        <article class="paper-section" id="figures">
+          <h2>建议图表</h2>
+          <ul><li>图 1：Agent 机器界面文档结构。</li><li>图 2：任务规划、工具调用、记忆读写和人类求助流程。</li><li>表 1：Agent 文档成熟度模型。</li></ul>
+        </article>
+        <article class="paper-section" id="evaluation">
+          <h2>评价设计</h2>
+          <p>本文可采用案例研究、对比实验、专家评审或企业项目复盘进行验证。核心评价指标包括：</p>
+          <ul><li>工具选择准确率</li><li>参数填写正确率</li><li>任务完成率</li><li>异常恢复率</li><li>错误求助率</li><li>人类介入时机准确率</li></ul>
+        </article>
+        <article class="paper-section" id="limitations">
+          <h2>局限与未来工作</h2>
+          <ul><li>Agent 行为受模型能力影响，文档改进不能完全消除推理错误。</li><li>机器界面文档需要与运行时日志结合，才能持续发现规则缺口。</li></ul>
+        </article>
+        <article class="paper-section" id="references">
+          <h2>参考文献方向</h2>
+          <p>以下为写成正式投稿论文时建议补充和核验的文献方向：</p>
+          <ul><li>AI Agent 和工具调用研究</li><li>ReAct、Toolformer 等工具使用研究方向</li><li>人机协同和人类在环系统研究</li><li>安全关键系统中的权限与升级机制</li></ul>
+          <div class="actions">
+            <a class="button primary" href="tool-schema-quality.html">阅读下一篇</a>
+            <a class="button" href="../index.html#papers">返回选题库</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

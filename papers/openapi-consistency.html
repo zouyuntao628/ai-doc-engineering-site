@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenAPI/AsyncAPI 一致性保障</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="../index.html"><span class="brand-mark">文</span><span>AI 文档工程</span></a>
+      <div class="nav-links"><a href="../index.html">首页</a><a href="contract-microservices.html">上一篇</a><a href="ddd-documentation.html">下一篇</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="paper-hero">
+      <p class="eyebrow">技术实证论文</p>
+      <h1>基于 OpenAPI/AsyncAPI 的 AI 代码生成一致性保障机制研究</h1>
+      <p class="lead">研究机器可读接口文档如何约束 AI 生成服务端、客户端、测试与事件处理代码。</p>
+      <div class="paper-meta"><span class="tag">OpenAPI</span><span class="tag">AsyncAPI</span><span class="tag">一致性验证</span></div>
+    </section>
+    <section class="paper-layout">
+      <aside class="toc">
+        <a href="#question">研究问题</a><a href="#abstract">摘要</a><a href="#contributions">核心贡献</a><a href="#intro">正文</a><a href="#research-design">研究设计</a><a href="#figures">图表建议</a><a href="#evaluation">评价设计</a><a href="#limitations">局限展望</a><a href="#references">参考文献方向</a>
+      </aside>
+      <div class="paper-content">
+        <article class="paper-section" id="question">
+          <h2>研究问题</h2>
+          <p class="quote">机器可读 API 文档能否显著降低 AI 生成代码中的接口不一致和集成失败？</p>
+        </article>
+        <article class="paper-section" id="abstract">
+          <h2>摘要</h2>
+          <p>自然语言接口说明容易产生歧义，而 OpenAPI/AsyncAPI 提供了结构化、可验证、可自动生成的接口契约。本文提出一种基于机器可读契约的 AI 代码生成一致性保障机制，并设计对比实验，评估无文档、自然语言说明、机器可读契约、契约加示例四种条件下 AI 生成代码的字段匹配率、状态码正确率、事件结构正确率、契约测试通过率和集成成功率。研究目标是证明高质量契约文档不仅提升人类协作，也能直接提升 AI 生成的可集成性。</p>
+          <h3>关键词</h3>
+          <div class="tag-row"><span class="tag">OpenAPI</span><span class="tag">AsyncAPI</span><span class="tag">LLM 代码生成</span><span class="tag">契约测试</span><span class="tag">接口一致性</span></div>
+        </article>
+        <article class="paper-section" id="contributions">
+          <h2>核心贡献</h2>
+          <ul><li>提出机器可读契约约束 AI 代码生成的一致性保障机制。</li><li>设计无文档、自然语言说明、机器可读契约、契约加示例四组对比实验。</li><li>建立字段匹配率、状态码正确率、契约测试通过率等可量化指标。</li></ul>
+        </article>
+        <article class="paper-section" id="intro">
+          <h2>引言</h2>
+          <p>大模型可以根据自然语言快速生成 REST API、事件消费者和客户端调用代码，但自然语言接口说明常常缺少字段类型、必填规则、错误状态和兼容性约束。OpenAPI 和 AsyncAPI 提供了结构化契约，使接口约束可以被工具验证，也可以作为模型生成的精确上下文。</p>
+        </article>
+        <article class="paper-section" id="section-1">
+          <h2>研究假设</h2>
+          <p>本文提出三个假设。第一，机器可读契约能显著提升 AI 生成代码的接口一致性。第二，契约加示例比单独契约更能降低语义误解。第三，契约文档接入 CI 后，可以把 AI 生成错误从集成阶段前移到生成和审查阶段。</p>
+        </article>
+        <article class="paper-section" id="section-2">
+          <h2>机制设计</h2>
+          <p>一致性保障机制包括四个环节。首先，使用 OpenAPI/AsyncAPI 定义接口和事件。其次，将契约作为 AI 生成提示上下文，要求模型基于契约生成代码。再次，自动生成契约测试和 Mock 服务，对生成代码进行验证。最后，在契约变更时执行兼容性检查，识别破坏性变化。</p>
+        </article>
+        <article class="paper-section" id="section-3">
+          <h2>实验设计</h2>
+          <p>实验设置四组条件：无契约组只提供功能需求；自然语言组提供接口文字说明；契约组提供 OpenAPI/AsyncAPI；增强组提供契约、示例、错误码和兼容性规则。任务集应覆盖 CRUD API、异步事件、错误处理、分页查询、鉴权和版本升级。</p><p>评价时应同时检查静态一致性和运行集成结果。静态一致性包括字段名、类型、必填项和状态码；运行结果包括契约测试、客户端调用和事件消费。</p>
+        </article>
+        <article class="paper-section" id="section-4">
+          <h2>预期结果与分析</h2>
+          <p>预期增强组表现最好，因为示例可以帮助模型理解字段语义和常见边界条件。自然语言组可能在简单任务中表现接近契约组，但在复杂错误处理、事件演进和兼容性约束方面表现较差。</p><p>该实验可以为企业提供证据：在 AI 代码生成场景中，维护 OpenAPI/AsyncAPI 不是额外负担，而是提高生成质量和集成效率的关键投资。</p>
+        </article>
+        <article class="paper-section" id="section-5">
+          <h2>结论</h2>
+          <p>基于 OpenAPI/AsyncAPI 的机器可读契约可以成为 AI 代码生成的一致性保障机制。它通过精确上下文、自动测试和兼容性审查，减少接口误解和集成失败。</p>
+        </article>
+        <article class="paper-section" id="research-design">
+          <h2>研究设计</h2>
+          <p>实验任务应覆盖 REST API、异步事件、错误处理、分页、鉴权和版本升级。每个任务在四种文档条件下生成代码，并使用同一测试套件评估。</p><p>为提高可信度，应在多个大模型、多个编程语言和不同复杂度任务上重复实验，并报告显著性差异。</p>
+        </article>
+        <article class="paper-section" id="figures">
+          <h2>建议图表</h2>
+          <ul><li>图 1：契约驱动 AI 代码生成与验证流水线。</li><li>表 1：四组实验条件说明。</li><li>表 2：接口一致性评价指标和计算方式。</li></ul>
+        </article>
+        <article class="paper-section" id="evaluation">
+          <h2>评价设计</h2>
+          <p>本文可采用案例研究、对比实验、专家评审或企业项目复盘进行验证。核心评价指标包括：</p>
+          <ul><li>字段匹配率</li><li>状态码正确率</li><li>事件结构正确率</li><li>契约测试通过率</li><li>破坏性变更检出率</li><li>修复轮次</li></ul>
+        </article>
+        <article class="paper-section" id="limitations">
+          <h2>局限与未来工作</h2>
+          <ul><li>实验结果可能受模型版本、提示词质量和任务复杂度影响。</li><li>OpenAPI/AsyncAPI 主要覆盖接口结构，对深层业务语义仍需要示例、领域规则和验收测试补充。</li></ul>
+        </article>
+        <article class="paper-section" id="references">
+          <h2>参考文献方向</h2>
+          <p>以下为写成正式投稿论文时建议补充和核验的文献方向：</p>
+          <ul><li>OpenAPI 规范</li><li>AsyncAPI 规范</li><li>契约测试和消费者驱动契约</li><li>LLM 代码生成实证评估研究</li></ul>
+          <div class="actions">
+            <a class="button primary" href="ddd-documentation.html">阅读下一篇</a>
+            <a class="button" href="../index.html#papers">返回选题库</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

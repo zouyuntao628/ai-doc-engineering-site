@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>软件文档范式转移</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="../index.html"><span class="brand-mark">文</span><span>AI 文档工程</span></a>
+      <div class="nav-links"><a href="../index.html">首页</a><a href="../index.html#papers">论文选题</a><a href="classification-framework.html">下一篇</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="paper-hero">
+      <p class="eyebrow">总论型论文</p>
+      <h1>AI 编程时代的软件文档范式转移：从代码附属物到协同界面</h1>
+      <p class="lead">本文讨论 AI 参与软件开发后，软件文档从“给人解释代码的材料”转变为“约束 AI 生成、组织团队认知、连接人机协作的工程界面”。</p>
+      <div class="paper-meta"><span class="tag">文档范式</span><span class="tag">人机协同</span><span class="tag">知识治理</span></div>
+    </section>
+    <section class="paper-layout">
+      <aside class="toc">
+        <a href="#question">研究问题</a><a href="#abstract">摘要</a><a href="#contributions">核心贡献</a><a href="#intro">正文</a><a href="#research-design">研究设计</a><a href="#figures">图表建议</a><a href="#evaluation">评价设计</a><a href="#limitations">局限展望</a><a href="#references">参考文献方向</a>
+      </aside>
+      <div class="paper-content">
+        <article class="paper-section" id="question">
+          <h2>研究问题</h2>
+          <p class="quote">在 AI 参与软件开发之后，软件文档的角色是否发生了根本变化？如果发生变化，新的文档范式是什么？</p>
+        </article>
+        <article class="paper-section" id="abstract">
+          <h2>摘要</h2>
+          <p>AI 编程工具显著提高了代码生成速度，但也将软件工程瓶颈从代码书写转移到目标表达、上下文组织、业务语义、架构边界和质量约束。传统软件文档通常被视为代码之后的说明材料，主要服务人类理解、交接和审计。在 AI 辅助开发中，文档开始承担新的工程职能：它是生成前的控制输入，是生成过程中的共享上下文，也是生成之后的验证依据。本文提出“文档即协同界面”的范式，系统分析软件文档从代码附属物到人机协同界面的转变，并说明这种转变对项目治理、研发组织和工具链建设的影响。</p>
+          <h3>关键词</h3>
+          <div class="tag-row"><span class="tag">AI 辅助软件开发</span><span class="tag">软件文档</span><span class="tag">人机协同</span><span class="tag">知识治理</span><span class="tag">生成约束</span></div>
+        </article>
+        <article class="paper-section" id="contributions">
+          <h2>核心贡献</h2>
+          <ul><li>提出“文档即协同界面”的概念，将文档从代码解释材料重新定义为人、AI、代码和工程治理之间的连接界面。</li><li>区分传统文档的事后说明功能与 AI 编程中文档的事前约束功能，解释文档为何成为生成质量的前置条件。</li><li>构建目标界面、语义界面、结构界面、行为界面和验证界面五层模型，为后续场景化文档模型提供理论基础。</li></ul>
+        </article>
+        <article class="paper-section" id="intro">
+          <h2>引言</h2>
+          <p>长期以来，软件工程讨论文档时往往围绕“写多少文档”展开。敏捷方法强调可工作的软件高于详尽文档，由此形成了轻量文档、Just Enough Documentation 和 Docs as Code 等实践。然而 AI 编程改变了这个问题的前提。代码不再完全依赖人工逐行书写，开发者可以通过自然语言、示例、规格和上下文驱动模型快速生成实现。此时，真正限制项目质量的因素不再只是编码能力，而是意图是否准确表达、约束是否明确、领域概念是否一致，以及团队和 AI 是否共享同一套上下文。</p><p>因此，AI 编程时代的软件文档不能继续被理解为代码之后的说明材料。文档必须前移到生成之前，成为定义目标、边界和判断标准的工程输入。一个没有清晰文档的项目，AI 仍然可以产出代码，但这些代码往往难以稳定符合业务语义、架构约束和长期演进要求。</p>
+        </article>
+        <article class="paper-section" id="section-1">
+          <h2>相关研究与实践基础</h2>
+          <p>传统软件文档研究关注需求规格、架构文档、API 文档、测试文档和维护文档。敏捷实践进一步强调文档应服务沟通和决策，而不是形成沉重的交付物。Docs as Code 则把文档纳入版本管理、代码审查和持续集成流程，使文档与代码共同演进。</p><p>AI 辅助开发带来了新的文档使用者。文档不再只由人阅读，也会被代码生成器、测试生成器、Agent、静态检查工具和 CI 流水线消费。由此产生的关键变化是：文档的价值不只体现在可读性，还体现在机器可消费性、约束显式性、示例覆盖度和可验证性。</p>
+        </article>
+        <article class="paper-section" id="section-2">
+          <h2>范式转移：从解释代码到约束生成</h2>
+          <p>传统文档主要回答“代码是什么意思”和“系统如何运行”。AI 编程中的文档还必须回答“AI 应该生成什么”“AI 不应该生成什么”“生成结果如何验证”“当上下文不足时如何向人求助”。这意味着文档的时间位置、使用对象和质量标准都发生了变化。</p><p>第一，文档从事后解释转向事前约束。需求、验收标准、架构决策、API 契约和领域词汇表成为 AI 生成的输入。第二，文档从面向人类转向面向人机共同消费。自然语言仍然重要，但结构化 Schema、示例、反例和机器可读规则同样重要。第三，文档从静态记录转向动态控制。文档变更应触发代码生成、测试更新、兼容性审查和 Agent 行为回归。</p>
+        </article>
+        <article class="paper-section" id="section-3">
+          <h2>协同界面模型</h2>
+          <p>本文将 AI 编程时代的软件文档定义为连接人类意图、AI 生成、代码实现和工程治理的协同界面。该界面包含五类内容：目标界面、语义界面、结构界面、行为界面和验证界面。目标界面包括产品愿景、用户故事和验收标准；语义界面包括领域词汇、概念定义和业务规则；结构界面包括架构约束、模块边界和 API 契约；行为界面包括 Agent 工具、编排规则和人机协同协议；验证界面包括测试策略、质量门禁和合规要求。</p><p>协同界面模型的意义在于把文档从“资料库”提升为“工作界面”。开发者、产品人员、架构师和 AI 不再各自解释项目背景，而是通过同一套文档界面表达、生成、审查和演进软件系统。</p>
+        </article>
+        <article class="paper-section" id="section-4">
+          <h2>讨论</h2>
+          <p>这一范式转移不会取消代码的重要性，而是改变代码与文档之间的主从关系。在传统开发中，代码往往被视为最终事实源，文档需要追随代码变化。在 AI 辅助开发中，某些文档反而应成为事实源，例如 API 契约、领域词汇表、工具 Schema 和验收标准。代码可以被重新生成，但这些文档承载的是项目的稳定认知。</p><p>同时，文档中心化也带来新的风险。如果文档过度抽象、陈旧或缺少版本治理，它会成为 AI 生成错误的放大器。因此，AI 编程时代需要的不只是更多文档，而是更适配项目类型、更结构化、更可验证、更能参与工程流程的文档。</p>
+        </article>
+        <article class="paper-section" id="section-5">
+          <h2>结论</h2>
+          <p>AI 编程使软件文档从代码附属物转变为人机协同界面。文档的核心作用从解释代码扩展到约束生成、组织认知、管理语义、驱动验证和控制 Agent 行为。未来软件工程需要建立面向 AI 的文档模型、质量度量、版本治理和工具链，使文档成为可演进的软件知识资产。</p>
+        </article>
+        <article class="paper-section" id="research-design">
+          <h2>研究设计</h2>
+          <p>采用概念分析与多案例归纳相结合的方法。首先从传统软件文档、敏捷文档和 Docs as Code 中提取文档功能，再对 AI 辅助开发中的需求表达、契约约束、领域语义和 Agent 行为控制进行比较分析。</p><p>案例材料可来自三个来源：AI 辅助原型项目、微服务契约驱动项目和 Agent 工具调用项目。通过比较这些项目中文档缺失导致的问题，归纳文档范式转移的共性机制。</p>
+        </article>
+        <article class="paper-section" id="figures">
+          <h2>建议图表</h2>
+          <ul><li>图 1：传统开发与 AI 辅助开发中的文档角色对比。</li><li>图 2：文档即协同界面的五层结构。</li><li>表 1：传统文档质量指标与 AI-ready 文档质量指标对照。</li></ul>
+        </article>
+        <article class="paper-section" id="evaluation">
+          <h2>评价设计</h2>
+          <p>本文可采用案例研究、对比实验、专家评审或企业项目复盘进行验证。核心评价指标包括：</p>
+          <ul><li>生成结果对文档约束的遵循率</li><li>需求到代码和测试的可追踪率</li><li>AI 生成漂移问题数量</li><li>团队对文档作为事实源的采纳程度</li></ul>
+        </article>
+        <article class="paper-section" id="limitations">
+          <h2>局限与未来工作</h2>
+          <ul><li>本文偏重理论建构，仍需要更多真实企业项目验证五层协同界面的适用性。</li><li>不同组织的 AI 工具链成熟度不同，文档转型路径可能存在差异。后续可结合企业案例形成分阶段迁移模型。</li></ul>
+        </article>
+        <article class="paper-section" id="references">
+          <h2>参考文献方向</h2>
+          <p>以下为写成正式投稿论文时建议补充和核验的文献方向：</p>
+          <ul><li>软件文档工程与 Docs as Code 相关研究</li><li>敏捷宣言与轻量文档实践</li><li>软件架构文档与架构决策记录研究</li><li>AI 辅助软件工程和代码生成研究</li></ul>
+          <div class="actions">
+            <a class="button primary" href="classification-framework.html">阅读下一篇</a>
+            <a class="button" href="../index.html#papers">返回选题库</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

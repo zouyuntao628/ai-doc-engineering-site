@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>多维项目分类框架</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="../index.html"><span class="brand-mark">文</span><span>AI 文档工程</span></a>
+      <div class="nav-links"><a href="../index.html">首页</a><a href="paradigm-shift.html">上一篇</a><a href="documentation-control-plane.html">下一篇</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="paper-hero">
+      <p class="eyebrow">主框架论文</p>
+      <h1>面向 AI 辅助软件开发的多维项目分类与文档模型匹配框架</h1>
+      <p class="lead">用业务、系统、协作、工程四个维度定位项目特征，并为不同特征组合匹配专属文档模型。</p>
+      <div class="paper-meta"><span class="tag">四维坐标</span><span class="tag">场景匹配</span><span class="tag">文档模型</span></div>
+    </section>
+    <section class="paper-layout">
+      <aside class="toc">
+        <a href="#question">研究问题</a><a href="#abstract">摘要</a><a href="#contributions">核心贡献</a><a href="#intro">正文</a><a href="#research-design">研究设计</a><a href="#figures">图表建议</a><a href="#evaluation">评价设计</a><a href="#limitations">局限展望</a><a href="#references">参考文献方向</a>
+      </aside>
+      <div class="paper-content">
+        <article class="paper-section" id="question">
+          <h2>研究问题</h2>
+          <p class="quote">如何根据项目特征，为 AI 参与的软件开发选择合适的文档组织方式？</p>
+        </article>
+        <article class="paper-section" id="abstract">
+          <h2>摘要</h2>
+          <p>AI 辅助开发中的文档需求高度依赖项目类型。探索型项目需要沉淀实验认知，分布式项目需要严格契约，平台型项目需要管理领域语义和变异点，AI 原生项目需要描述工具和编排规则。统一文档模板难以覆盖这些差异。本文提出一个由业务维度、系统维度、协作维度和工程维度构成的多维项目分类框架，并基于维度交叉提炼四类典型场景：AI 辅助的原型探索、契约驱动的微服务产品开发、领域驱动的平台建设和 AI 原生应用的 Agent 构建。在此基础上，本文提出认知沉淀模型、契约中心模型、领域模型中心模型和智能体编排模型，并建立项目特征与文档模型之间的匹配关系。</p>
+          <h3>关键词</h3>
+          <div class="tag-row"><span class="tag">AI 辅助开发</span><span class="tag">项目分类</span><span class="tag">文档模型</span><span class="tag">人机协作</span><span class="tag">软件工程方法论</span></div>
+        </article>
+        <article class="paper-section" id="contributions">
+          <h2>核心贡献</h2>
+          <ul><li>提出业务、系统、协作和工程四维项目分类框架，用于识别 AI 辅助开发项目的文档需求差异。</li><li>提炼四类典型场景，并将其分别映射到认知沉淀、契约中心、领域模型中心和智能体编排四种文档模型。</li><li>提出混合型项目的文档模型组合原则，为复杂项目选择文档优先级提供决策依据。</li></ul>
+        </article>
+        <article class="paper-section" id="intro">
+          <h2>引言</h2>
+          <p>AI 编程工具使不同类型项目都能更快获得代码实现，但并没有消除项目之间的差异。一个探索型原型、一个高可靠微服务系统、一个多产品线平台和一个 Agent 应用，对文档的要求完全不同。如果仍然使用统一的需求文档、设计文档和测试文档模板，往往会出现两类问题：该记录的知识没有记录，不需要的文档却消耗大量维护成本。</p><p>本文的出发点是：文档模型必须由项目特征决定。文档不是越多越好，而是要服务项目的核心矛盾。探索型项目的核心矛盾是认知沉淀，微服务项目的核心矛盾是契约一致性，平台项目的核心矛盾是领域语义和变异点治理，Agent 项目的核心矛盾是机器可读的行为编排。</p>
+        </article>
+        <article class="paper-section" id="section-1">
+          <h2>四维项目分类框架</h2>
+          <p>业务维度描述产品成熟度和变异度，包括探索型、成长型、平台型和存在显著变异点的项目。探索型项目强调快速验证假设，成长型项目强调系统化建设，平台型项目强调复用和长期演进，变异点则要求管理客户、行业或市场版本差异。</p><p>系统维度描述架构风格，包括单体式、分布式、数据密集型和 AI 原生。单体式项目更关注模块边界和局部一致性，分布式项目更关注契约和流程，数据密集型项目更关注数据口径和管道，AI 原生项目更关注工具、记忆和编排规则。</p><p>协作维度描述人和 AI 的分工，包括人机对话型、人机协作型、AI 编排型和生成增强型。工程维度描述迭代和质量诉求，包括速度优先、质量优先和长期演进。这四个维度共同决定文档的类型、粒度、格式和版本策略。</p>
+        </article>
+        <article class="paper-section" id="section-2">
+          <h2>典型场景提炼</h2>
+          <p>场景 A 是 AI 辅助的原型探索，其组合为探索型业务、单体或轻量系统、人机对话型协作和速度优先工程诉求。该场景不应把临时代码视为核心资产，而应把实验过程中的认知视为核心资产。</p><p>场景 B 是契约驱动的微服务产品开发，其组合为成长型业务、分布式系统、人机协作型模式和质量优先诉求。该场景需要把 API 和事件契约作为唯一真相源，约束多个团队和 AI 的局部生成。</p><p>场景 C 是领域驱动的平台建设，其组合为平台型业务、存在变异点、单体或微服务架构、人机协作型模式和长期演进诉求。该场景需要让统一语言和领域模型驱动代码生成，并通过特性配置管理差异。</p><p>场景 D 是 AI 原生应用的 Agent 构建，其组合为探索或成长型业务、AI 原生系统、AI 编排型协作和速度与质量并重。该场景需要为 AI 编写机器界面文档，精确定义工具、路由、记忆和异常处理。</p>
+        </article>
+        <article class="paper-section" id="section-3">
+          <h2>文档模型匹配</h2>
+          <p>认知沉淀模型以实验日志和结构化提取卡为核心。它强调记录目标、假设、Prompt、AI 输出、运行结果、失败原因和可复用认知。其迭代核心不是代码是否保留，而是实验结论是否被结构化为后续可用的需求、约束和设计判断。</p><p>契约中心模型以 OpenAPI、AsyncAPI、事件 Schema 和服务蓝图为核心。它强调契约版本管理、兼容性审查和端到端流程覆盖，使 AI 生成代码、测试和 Mock 时遵循同一套接口事实源。</p><p>领域模型中心模型以统一语言、领域模型图、业务不变量和特性配置为核心。它强调领域语义的稳定性和变异点的可追踪性，使平台能力和产品差异可以被 AI 正确理解。</p><p>智能体编排模型以工具定义、函数 Schema、编排规则、记忆策略和人机协同协议为核心。它强调机器可读性和异常鲁棒性，使 Agent 在复杂任务中具备可控行为。</p>
+        </article>
+        <article class="paper-section" id="section-4">
+          <h2>混合型项目处理</h2>
+          <p>真实项目往往不是单一场景。例如一个 AI 原生 SaaS 平台可能同时具有平台型、分布式和 Agent 编排特征。此时不应简单选择一种文档模型，而应按风险和核心矛盾组合文档模型。若系统存在大量服务接口，应优先引入契约中心模型；若存在多行业版本，应叠加领域模型和变异点文档；若 Agent 负责关键流程，应补充机器界面文档。</p><p>混合策略的原则是：先覆盖高风险协作边界，再覆盖长期语义资产，最后覆盖低频说明性内容。</p>
+        </article>
+        <article class="paper-section" id="section-5">
+          <h2>结论</h2>
+          <p>本文提出的多维项目分类与文档模型匹配框架，为 AI 辅助开发中的文档组织提供了系统方法。它避免了统一模板的僵化，也避免了完全依赖经验的随意性。后续研究可以围绕各类模型的质量度量、工具支持和企业案例验证继续展开。</p>
+        </article>
+        <article class="paper-section" id="research-design">
+          <h2>研究设计</h2>
+          <p>采用设计科学研究方法。第一步定义问题域，即 AI 辅助开发中统一文档模板失效的问题；第二步构建分类框架；第三步通过典型场景推演验证框架解释力；第四步提出文档模型匹配矩阵。</p><p>后续实证可以选择若干项目进行专家标注，让架构师、产品负责人和 AI 工程师分别判断项目维度，再比较该框架推荐的文档模型与项目实际文档痛点是否一致。</p>
+        </article>
+        <article class="paper-section" id="figures">
+          <h2>建议图表</h2>
+          <ul><li>图 1：四维项目分析坐标系。</li><li>图 2：项目特征到文档模型的匹配流程。</li><li>表 1：四类典型场景的特征组合、核心矛盾与推荐文档模型。</li></ul>
+        </article>
+        <article class="paper-section" id="evaluation">
+          <h2>评价设计</h2>
+          <p>本文可采用案例研究、对比实验、专家评审或企业项目复盘进行验证。核心评价指标包括：</p>
+          <ul><li>文档模型与项目核心矛盾的匹配度</li><li>AI 生成代码的一次通过率</li><li>跨角色协作中的歧义减少量</li><li>文档维护成本与复用收益</li></ul>
+        </article>
+        <article class="paper-section" id="limitations">
+          <h2>局限与未来工作</h2>
+          <ul><li>四维分类框架是抽象模型，真实项目可能同时落入多个场景，需要进一步研究权重和组合规则。</li><li>当前典型场景主要覆盖软件产品开发，未来可扩展到科研软件、低代码平台、数据治理项目和嵌入式系统。</li></ul>
+        </article>
+        <article class="paper-section" id="references">
+          <h2>参考文献方向</h2>
+          <p>以下为写成正式投稿论文时建议补充和核验的文献方向：</p>
+          <ul><li>软件项目分类与情境化软件工程研究</li><li>敏捷文档和轻量文档实践</li><li>契约驱动开发和 DDD 相关研究</li><li>AI 辅助软件工程实践研究</li></ul>
+          <div class="actions">
+            <a class="button primary" href="documentation-control-plane.html">阅读下一篇</a>
+            <a class="button" href="../index.html#papers">返回选题库</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
